@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PV Calculator - الاستشارة الهندسية</title>
+    <title>PV Calculator - التواصل مع الشركات</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,8 +13,6 @@
             --light-color: #ecf0f1;
             --dark-color: #2c3e50;
             --success-color: #27ae60;
-            --warning-color: #f39c12;
-            --whatsapp-color: #25D366;
         }
         
         body {
@@ -66,15 +64,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .step {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .step.active {
-            display: block;
-        }
-        
         .form-group {
             margin-bottom: 20px;
         }
@@ -86,9 +75,7 @@
             color: var(--dark-color);
         }
         
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 12px;
             border: 1px solid #ddd;
@@ -97,84 +84,15 @@
             transition: all 0.3s;
         }
         
-        .form-group input:focus, 
-        .form-group select:focus, 
-        .form-group textarea:focus {
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             border-color: var(--secondary-color);
             outline: none;
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
         }
         
-        .problem-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .problem-option {
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .problem-option:hover {
-            border-color: var(--secondary-color);
-            background-color: rgba(52, 152, 219, 0.05);
-        }
-        
-        .problem-option.selected {
-            border: 2px solid var(--success-color);
-            background-color: rgba(39, 174, 96, 0.05);
-        }
-        
-        .problem-option i {
-            margin-left: 5px;
-            color: var(--secondary-color);
-        }
-        
-        .engineer-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            background-color: #f9f9f9;
-        }
-        
-        .engineer-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: var(--light-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 15px;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-        
-        .engineer-info {
-            flex: 1;
-        }
-        
-        .engineer-info h3 {
-            margin: 0;
-            color: var(--primary-color);
-        }
-        
-        .engineer-info p {
-            margin: 5px 0 0;
-            color: #7f8c8d;
-        }
-        
         .btn {
             display: inline-block;
-            background-color: var(--secondary-color);
+            background-color: var(--success-color);
             color: white;
             padding: 12px 25px;
             border: none;
@@ -183,64 +101,68 @@
             font-size: 16px;
             font-weight: 600;
             transition: all 0.3s;
-            margin-top: 10px;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
-        
-        .btn-next {
-            background-color: var(--success-color);
-        }
-        
-        .btn-back {
-            background-color: var(--warning-color);
-        }
-        
-        .btn-submit {
-            background-color: var(--accent-color);
             width: 100%;
         }
         
-        .btn-submit:hover {
-            background-color: #c0392b;
-        }
-        
-        .success-message {
-            text-align: center;
-            padding: 30px;
-            display: none;
-        }
-        
-        .success-message i {
-            font-size: 3rem;
-            color: var(--success-color);
-            margin-bottom: 20px;
-        }
-        
-        .success-message h3 {
-            color: var(--success-color);
-            font-size: 1.5rem;
-        }
-        
-        .whatsapp-btn {
-            background-color: var(--whatsapp-color) !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .whatsapp-btn:hover {
-            background-color: #128C7E !important;
+        .btn:hover {
+            background-color: #219653;
             transform: translateY(-2px);
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .company-selector {
+            margin-bottom: 30px;
+        }
+        
+        .company-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .company-card.selected {
+            border: 2px solid var(--success-color);
+            background-color: rgba(39, 174, 96, 0.05);
+        }
+        
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #eee;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .company-info {
+            flex: 1;
+        }
+        
+        .company-info h3 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+        
+        .company-info p {
+            margin: 5px 0 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .success-message {
+            display: none;
+            background-color: var(--success-color);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
         }
         
         footer {
@@ -257,7 +179,7 @@
     <header>
         <div class="logo">
             <img src="logo.png" alt="PV Calculator Logo" width="50">
-            <h1>الاستشارة الهندسية الشخصية</h1>
+            <h1>التواصل مع الشركات</h1>
         </div>
         
         <div class="nav-links">
@@ -267,110 +189,90 @@
     </header>
 
     <div class="container">
-        <!-- الخطوة 1: اختيار نوع المشكلة -->
-        <div class="step active" id="step1">
-            <h2><i class="fas fa-list-alt"></i> الخطوة 1: اختر نوع المشكلة</h2>
-            <p>حدد نوع المشكلة أو الاستشارة من القائمة التالية:</p>
-            
-            <div class="problem-options" id="problemOptions">
-                <div class="problem-option" data-problem="bill">
-                    <i class="fas fa-file-invoice"></i> مشكلة في قراءة فاتورة الكهرباء
-                </div>
-                <div class="problem-option" data-problem="outage">
-                    <i class="fas fa-bolt"></i> انقطاع كهرباء متكرر رغم وجود نظام شمسي
-                </div>
-                <div class="problem-option" data-problem="panels">
-                    <i class="fas fa-solar-panel"></i> انخفاض في أداء الألواح
-                </div>
-                <div class="problem-option" data-problem="inverter">
-                    <i class="fas fa-plug"></i> فرق في قراءة الانفرتر
-                </div>
-                <div class="problem-option" data-problem="batteries">
-                    <i class="fas fa-car-battery"></i> مشكلة في البطاريات
-                </div>
-                <div class="problem-option" data-problem="cables">
-                    <i class="fas fa-project-diagram"></i> خلل في كابل أو توصيلة
-                </div>
-                <div class="problem-option" data-problem="connection">
-                    <i class="fas fa-network-wired"></i> ربط النظام مع شركة الكهرباء
-                </div>
-                <div class="problem-option" data-problem="other">
-                    <i class="fas fa-question-circle"></i> أخرى (مشكلة غير مدرجة)
-                </div>
-            </div>
-            
-            <div class="form-group" id="otherProblemGroup" style="display: none; margin-top: 20px;">
-                <label for="otherProblem">حدد المشكلة:</label>
-                <input type="text" id="otherProblem" placeholder="صف المشكلة بالتفصيل">
-            </div>
-            
-            <button class="btn btn-next" id="nextToStep2">التالي <i class="fas fa-arrow-left"></i></button>
-        </div>
+        <h2><i class="fas fa-store"></i> التواصل مع الشركات الموردة</h2>
+        <p>اختر الشركة التي تريد التواصل معها وأدخل بياناتك لطلب عرض سعر</p>
         
-        <!-- الخطوة 2: تحديد الجهة المناسبة -->
-        <div class="step" id="step2">
-            <h2><i class="fas fa-user-tie"></i> الخطوة 2: الجهة المختصة</h2>
-            <p>سيتم تحويلك إلى:</p>
+        <div class="company-selector">
+            <h3>اختر الشركة:</h3>
             
-            <div id="engineerSelection">
-                <!-- سيتم تعبئتها بالجافاسكريبت -->
+            <div class="company-card selected" data-company="1">
+                <div class="company-logo">
+                    <i class="fas fa-solar-panel"></i>
+                </div>
+                <div class="company-info">
+                    <h3>شركة الطاقة الخضراء</h3>
+                    <p>متخصصون في أنظمة الطاقة الشمسية المنزلية والتجارية</p>
+                </div>
             </div>
             
-            <div class="form-group">
-                <label for="problemDetails">تفاصيل المشكلة:</label>
-                <textarea id="problemDetails" rows="4" placeholder="صف المشكلة بالتفصيل"></textarea>
+            <div class="company-card" data-company="2">
+                <div class="company-logo">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="company-info">
+                    <h3>الشركة السعودية للطاقة الشمسية</h3>
+                    <p>رائدة في مجال الطاقة المتجددة</p>
+                </div>
             </div>
             
-            <div style="display: flex; justify-content: space-between;">
-                <button class="btn btn-back" id="backToStep1"><i class="fas fa-arrow-right"></i> السابق</button>
-                <button class="btn btn-next" id="nextToStep3">التالي <i class="fas fa-arrow-left"></i></button>
+            <div class="company-card" data-company="3">
+                <div class="company-logo">
+                    <i class="fas fa-car-battery"></i>
+                </div>
+                <div class="company-info">
+                    <h3>تكنو سولار</h3>
+                    <p>متخصصون في الأنظمة الهجينة والمنفصلة عن الشبكة</p>
+                </div>
             </div>
         </div>
         
-        <!-- الخطوة 3: البيانات الشخصية -->
-        <div class="step" id="step3">
-            <h2><i class="fas fa-user-circle"></i> الخطوة 3: البيانات الشخصية</h2>
-            <p>الرجاء إدخال بياناتك للتواصل معك:</p>
-            
+        <form id="contact-form">
             <div class="form-group">
-                <label for="fullName">الاسم الكامل:</label>
-                <input type="text" id="fullName" required>
+                <label for="name">الاسم الكامل:</label>
+                <input type="text" id="name" required>
             </div>
             
             <div class="form-group">
-                <label for="nationalId">الرقم الوطني:</label>
-                <input type="text" id="nationalId" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone">رقم الهاتف:</label>
+                <label for="phone">رقم الجوال:</label>
                 <input type="tel" id="phone" required>
             </div>
             
             <div class="form-group">
-                <label for="email">البريد الإلكتروني (اختياري):</label>
+                <label for="email">البريد الإلكتروني:</label>
                 <input type="email" id="email">
             </div>
             
-            <div style="display: flex; justify-content: space-between;">
-                <button class="btn btn-back" id="backToStep2"><i class="fas fa-arrow-right"></i> السابق</button>
-                <button class="btn btn-submit" id="submitRequest"><i class="fas fa-paper-plane"></i> إرسال الطلب</button>
+            <div class="form-group">
+                <label for="city">المدينة:</label>
+                <input type="text" id="city" required>
             </div>
-        </div>
+            
+            <div class="form-group">
+                <label for="system-type">نوع النظام المطلوب:</label>
+                <select id="system-type" required>
+                    <option value="">اختر نوع النظام</option>
+                    <option value="on-grid">متصل بالشبكة (On-Grid)</option>
+                    <option value="hybrid">هجين (Hybrid)</option>
+                    <option value="off-grid">منفصل عن الشبكة (Off-Grid)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="system-size">حجم النظام المطلوب (كيلوواط):</label>
+                <input type="number" id="system-size" min="1" step="0.1">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">ملاحظات إضافية:</label>
+                <textarea id="message" rows="4"></textarea>
+            </div>
+            
+            <button type="submit" class="btn">إرسال الطلب <i class="fas fa-paper-plane"></i></button>
+        </form>
         
-        <!-- رسالة النجاح -->
-        <div class="success-message" id="successMessage">
-            <i class="fas fa-check-circle"></i>
-            <h3>تم استلام استشارتك بنجاح</h3>
-            <p>سيتم التواصل معك خلال 24 ساعة من قبل المختص</p>
-            <div id="whatsappShare" style="margin-top: 20px;">
-                <button class="btn whatsapp-btn" id="sendWhatsapp">
-                    <i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب
-                </button>
-            </div>
-            <button class="btn" onclick="window.location.href='general.html'" style="margin-top: 15px;">
-                <i class="fas fa-home"></i> العودة للخدمات العامة
-            </button>
+        <div class="success-message" id="success-message">
+            <h3><i class="fas fa-check-circle"></i> تم إرسال طلبك بنجاح</h3>
+            <p>سيقوم ممثل الشركة بالتواصل معك خلال 24 ساعة</p>
         </div>
     </div>
 
@@ -379,193 +281,33 @@
     </footer>
 
     <script>
-        // بيانات المهندسين
-        const engineers = {
-            solar: {
-                title: "مهندس طاقة شمسية",
-                description: "متخصص في مشاكل الألواح الشمسية، الانفرترات، البطاريات وأنظمة الطاقة الشمسية",
-                icon: "fa-solar-panel"
-            },
-            electric: {
-                title: "مهندس كهرباء",
-                description: "متخصص في التمديدات الكهربائية، الأحمال، والفولتية",
-                icon: "fa-bolt"
-            },
-            company: {
-                title: "مندوب شركة الكهرباء",
-                description: "متخصص في مشاكل الربط مع الشبكة، العدادات، والفواتير",
-                icon: "fa-building"
-            },
-            general: {
-                title: "مهندس عام",
-                description: "سيقوم بتحليل مشكلتك وتوجيهك للجهة المناسبة",
-                icon: "fa-user-cog"
-            }
-        };
-
-        // متغيرات التتبع
-        let selectedProblem = "";
-        let selectedEngineer = "";
-        
-        // اختيار المشكلة
-        document.querySelectorAll('.problem-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.problem-option').forEach(opt => {
-                    opt.classList.remove('selected');
+        // اختيار الشركة
+        document.querySelectorAll('.company-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.company-card').forEach(c => {
+                    c.classList.remove('selected');
                 });
                 this.classList.add('selected');
-                selectedProblem = this.getAttribute('data-problem');
-                
-                // إظهار حقل "أخرى" إذا تم اختياره
-                if (selectedProblem === 'other') {
-                    document.getElementById('otherProblemGroup').style.display = 'block';
-                } else {
-                    document.getElementById('otherProblemGroup').style.display = 'none';
-                }
             });
         });
         
-        // الانتقال إلى الخطوة 2
-        document.getElementById('nextToStep2').addEventListener('click', function() {
-            if (!selectedProblem) {
-                alert('الرجاء اختيار نوع المشكلة');
-                return;
-            }
+        // إرسال النموذج
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // تحديد المهندس المناسب
-            let engineerType = 'general';
-            
-            if (selectedProblem === 'bill' || selectedProblem === 'connection') {
-                engineerType = 'company';
-            } else if (selectedProblem === 'panels' || selectedProblem === 'inverter' || selectedProblem === 'batteries') {
-                engineerType = 'solar';
-            } else if (selectedProblem === 'outage' || selectedProblem === 'cables') {
-                engineerType = 'electric';
-            }
-            
-            selectedEngineer = engineerType;
-            
-            // عرض بطاقة المهندس
-            const engineer = engineers[engineerType];
-            const engineerHTML = `
-                <div class="engineer-card">
-                    <div class="engineer-icon">
-                        <i class="fas ${engineer.icon}"></i>
-                    </div>
-                    <div class="engineer-info">
-                        <h3>${engineer.title}</h3>
-                        <p>${engineer.description}</p>
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById('engineerSelection').innerHTML = engineerHTML;
-            
-            // الانتقال إلى الخطوة 2
-            document.getElementById('step1').classList.remove('active');
-            document.getElementById('step2').classList.add('active');
-        });
-        
-        // الأزرار للتنقل بين الخطوات
-        document.getElementById('backToStep1').addEventListener('click', function() {
-            document.getElementById('step2').classList.remove('active');
-            document.getElementById('step1').classList.add('active');
-        });
-        
-        document.getElementById('nextToStep3').addEventListener('click', function() {
-            if (!document.getElementById('problemDetails').value) {
-                alert('الرجاء إدخال تفاصيل المشكلة');
-                return;
-            }
-            
-            document.getElementById('step2').classList.remove('active');
-            document.getElementById('step3').classList.add('active');
-        });
-        
-        document.getElementById('backToStep2').addEventListener('click', function() {
-            document.getElementById('step3').classList.remove('active');
-            document.getElementById('step2').classList.add('active');
-        });
-        
-        // إرسال الطلب
-        document.getElementById('submitRequest').addEventListener('click', function() {
-            const fullName = document.getElementById('fullName').value;
-            const nationalId = document.getElementById('nationalId').value;
-            const phone = document.getElementById('phone').value;
-            
-            if (!fullName || !nationalId || !phone) {
-                alert('الرجاء إدخال جميع البيانات المطلوبة');
-                return;
-            }
+            // هنا يمكنك إضافة كود لإرسال البيانات إلى الخادم
+            // أو حفظها في localStorage
             
             // عرض رسالة النجاح
-            document.getElementById('step3').classList.remove('active');
-            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('success-message').style.display = 'block';
             
-            // تسجيل البيانات في الكونسول
-            console.log('تم إرسال الطلب:', {
-                problem: selectedProblem,
-                engineer: selectedEngineer,
-                details: document.getElementById('problemDetails').value,
-                otherProblem: document.getElementById('otherProblem').value,
-                fullName,
-                nationalId,
-                phone,
-                email: document.getElementById('email').value
+            // مسح النموذج
+            this.reset();
+            
+            // التمرير إلى رسالة النجاح
+            document.getElementById('success-message').scrollIntoView({
+                behavior: 'smooth'
             });
-        });
-        
-        // إرسال الاستشارة عبر واتساب
-        document.getElementById('sendWhatsapp').addEventListener('click', function() {
-            const fullName = document.getElementById('fullName').value;
-            const phone = document.getElementById('phone').value;
-            const problemDetails = document.getElementById('problemDetails').value;
-            const otherProblem = document.getElementById('otherProblem').value;
-            
-            // تحديد نوع المشكلة
-            let problemType = '';
-            switch(selectedProblem) {
-                case 'bill': problemType = 'مشكلة في قراءة فاتورة الكهرباء'; break;
-                case 'outage': problemType = 'انقطاع كهرباء متكرر رغم وجود نظام شمسي'; break;
-                case 'panels': problemType = 'انخفاض في أداء الألواح'; break;
-                case 'inverter': problemType = 'فرق في قراءة الانفرتر'; break;
-                case 'batteries': problemType = 'مشكلة في البطاريات'; break;
-                case 'cables': problemType = 'خلل في كابل أو توصيلة'; break;
-                case 'connection': problemType = 'ربط النظام مع شركة الكهرباء'; break;
-                case 'other': problemType = otherProblem || 'مشكلة غير محددة'; break;
-                default: problemType = 'مشكلة غير محددة';
-            }
-            
-            // تحديد نوع المهندس
-            const engineerType = engineers[selectedEngineer].title;
-            
-            // إنشاء الرسالة المنمقة
-            const message = `
-                *طلب استشارة هندسية - PV Calculator*
-                
-                *البيانات الشخصية:*
-                - الاسم: ${fullName}
-                - رقم الهاتف: ${phone}
-                
-                *تفاصيل المشكلة:*
-                - نوع المشكلة: ${problemType}
-                - الجهة المختصة: ${engineerType}
-                
-                *وصف المشكلة:*
-                ${problemDetails}
-                
-                *ملاحظة:* 
-                هذه الرسالة مرسلة تلقائياً من نظام الاستشارات الهندسية
-            `;
-            
-            // ترميز الرسالة للرابط
-            const encodedMessage = encodeURIComponent(message);
-            
-            // إنشاء رابط واتساب
-            const whatsappUrl = `https://wa.me/962781339210?text=${encodedMessage}`;
-            
-            // فتح الرابط في نافذة جديدة
-            window.open(whatsappUrl, '_blank');
         });
     </script>
 </body>
