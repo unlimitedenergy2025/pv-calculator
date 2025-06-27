@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV Calculator - حساب النظام من الفاتورة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 15px auto;
+            max-width: 90%;
+            border-radius: 50px;
+        }
+        
+        .nav-links a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--success-color);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background-color: #219653;
+            transform: translateY(-2px);
+        }
+        
+        .result-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 4px solid var(--success-color);
+            display: none;
+        }
+        
+        .result-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .result-title i {
+            margin-left: 10px;
+            color: var(--success-color);
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-item span:first-child {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .result-item span:last-child {
+            color: #555;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+            }
+            
+            .nav-links a {
+                margin: 5px;
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="PV Calculator Logo" width="50">
+            <h1>حساب النظام من فاتورة الكهرباء</h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="general.html"><i class="fas fa-arrow-right"></i> رجوع للخدمات العامة</a>
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2><i class="fas fa-file-invoice-dollar"></i> حساب النظام الشمسي من الفاتورة</h2>
+        <p>أدخل بيانات فاتورة الكهرباء الشهرية لحساب حجم النظام الشمسي المناسب لك</p>
+        
+        <form id="bill-form">
+            <div class="form-group">
+                <label for="monthly-consumption">الاستهلاك الشهري (كيلوواط/ساعة):</label>
+                <input type="number" id="monthly-consumption" min="1" placeholder="مثال: 1500" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="city">المحافظة/المدينة:</label>
+                <select id="city" required>
+                    <option value="">اختر المدينة</option>
+                    <option value="riyadh">الرياض</option>
+                    <option value="jeddah">جدة</option>
+                    <option value="dammam">الدمام</option>
+                    <option value="mecca">مكة المكرمة</option>
+                    <option value="medina">المدينة المنورة</option>
+                    <option value="hail">حائل</option>
+                    <option value="tabuk">تبوك</option>
+                    <option value="abha">أبها</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="system-type">نوع النظام المطلوب:</label>
+                <select id="system-type" required>
+                    <option value="on-grid">متصل بالشبكة (On-Grid)</option>
+                    <option value="hybrid">هجين (Hybrid)</option>
+                    <option value="off-grid">منفصل عن الشبكة (Off-Grid)</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn">حساب النظام <i class="fas fa-calculator"></i></button>
+        </form>
+        
+        <div class="result-card" id="results">
+            <h3 class="result-title"><i class="fas fa-chart-line"></i> نتائج الحساب</h3>
+            
+            <div class="result-item">
+                <span>الاستهلاك اليومي المتوسط:</span>
+                <span id="daily-consumption">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>متوسط ساعات الشمس في منطقتك:</span>
+                <span id="sun-hours">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>حجم النظام المطلوب:</span>
+                <span id="system-size">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>عدد الألواح الشمسية (400 واط):</span>
+                <span id="panels-count">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>حجم الانفرتر الموصى به:</span>
+                <span id="inverter-size">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>التكلفة التقديرية:</span>
+                <span id="estimated-cost">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>فترة الاسترداد (تقريبية):</span>
+                <span id="payback-period">--</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 PV Calculator. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        document.getElementById('bill-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // الحصول على القيم المدخلة
+            const monthlyConsumption = parseFloat(document.getElementById('monthly-consumption').value);
+            const city = document.getElementById('city').value;
+            const systemType = document.getElementById('system-type').value;
+            
+            // بيانات ساعات الشمس حسب المدينة (ساعات/يوم)
+            const sunHoursData = {
+                riyadh: 5.8,
+                jeddah: 6.2,
+                dammam: 6.0,
+                mecca: 6.3,
+                medina: 6.5,
+                hail: 5.7,
+                tabuk: 5.9,
+                abha: 5.5
+            };
+            
+            // حساب الاستهلاك اليومي (كيلوواط/ساعة)
+            const dailyConsumption = (monthlyConsumption / 30).toFixed(2);
+            
+            // حساب حجم النظام المطلوب (كيلوواط)
+            const sunHours = city ? sunHoursData[city] : 5.8;
+            let systemSize = (dailyConsumption / (sunHours * 0.75)).toFixed(2); // افتراض كفاءة 75%
+            
+            // تعديل حسب نوع النظام
+            if (systemType === 'hybrid') systemSize = (systemSize * 1.2).toFixed(2);
+            if (systemType === 'off-grid') systemSize = (systemSize * 1.5).toFixed(2);
+            
+            // حساب عدد الألواح (افتراض 400 واط لكل لوح)
+            const panelsCount = Math.ceil((systemSize * 1000) / 400);
+            
+            // حساب حجم الانفرتر (كيلوواط)
+            const inverterSize = (systemSize * 1.25).toFixed(2);
+            
+            // التكلفة التقديرية (ريال سعودي)
+            const costPerWatt = systemType === 'on-grid' ? 2.5 : systemType === 'hybrid' ? 3.5 : 4.5;
+            const estimatedCost = (systemSize * 1000 * costPerWatt).toLocaleString();
+            
+            // فترة الاسترداد (سنوات)
+            const currentBill = monthlyConsumption * 0.18 * 12; // افتراض متوسط سعر 0.18 ريال/ك.و.س
+            const paybackPeriod = ((systemSize * 1000 * costPerWatt) / currentBill).toFixed(1);
+            
+            // عرض النتائج
+            document.getElementById('daily-consumption').textContent = dailyConsumption + ' كيلوواط/ساعة';
+            document.getElementById('sun-hours').textContent = sunHours + ' ساعات/يوم';
+            document.getElementById('system-size').textContent = systemSize + ' كيلوواط';
+            document.getElementById('panels-count').textContent = panelsCount + ' لوح';
+            document.getElementById('inverter-size').textContent = inverterSize + ' كيلوواط';
+            document.getElementById('estimated-cost').textContent = estimatedCost + ' ريال سعودي';
+            document.getElementById('payback-period').textContent = paybackPeriod + ' سنوات';
+            
+            document.getElementById('results').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

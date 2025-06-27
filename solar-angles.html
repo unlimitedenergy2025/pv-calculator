@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV Calculator - حساب الزوايا الشمسية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 15px auto;
+            max-width: 90%;
+            border-radius: 50px;
+        }
+        .nav-links a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .result-card {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="PV Calculator Logo" width="50">
+            <h1>حساب الزوايا الشمسية</h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="engineering.html"><i class="fas fa-arrow-right"></i> رجوع للخدمات الهندسية</a>
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2><i class="fas fa-sun"></i> حساب الزوايا الشمسية</h2>
+        <p>أدخل بيانات موقعك الجغرافي والتاريخ للحصول على الزوايا الشمسية الدقيقة</p>
+        
+        <form id="solar-angle-form">
+            <div class="form-group">
+                <label for="latitude">خط العرض (درجات):</label>
+                <input type="number" id="latitude" step="0.0001" placeholder="مثال: 24.7136 للرياض" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="longitude">خط الطول (درجات):</label>
+                <input type="number" id="longitude" step="0.0001" placeholder="مثال: 46.6753 للرياض" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">التاريخ:</label>
+                <input type="date" id="date" required>
+            </div>
+            
+            <button type="submit" class="btn">حساب الزوايا <i class="fas fa-calculator"></i></button>
+        </form>
+        
+        <div class="result-card" id="results" style="display: none;">
+            <h3><i class="fas fa-chart-line"></i> النتائج:</h3>
+            
+            <div class="result-item">
+                <span>زاوية الارتفاع الشمسي:</span>
+                <span id="elevation-angle">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>زاوية السمت الشمسي:</span>
+                <span id="azimuth-angle">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>زاوية الانحدار المثلى:</span>
+                <span id="optimal-tilt">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>وقت الشروق:</span>
+                <span id="sunrise">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>وقت الغروب:</span>
+                <span id="sunset">--</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 PV Calculator. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        document.getElementById('solar-angle-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // الحصول على القيم المدخلة
+            const latitude = parseFloat(document.getElementById('latitude').value);
+            const longitude = parseFloat(document.getElementById('longitude').value);
+            const date = new Date(document.getElementById('date').value);
+            
+            // هنا نقوم بالحسابات الدقيقة للزوايا الشمسية
+            // (هذه معادلات مبسطة لأغراض التوضيح)
+            
+            // حساب اليوم السنوي (1-365)
+            const start = new Date(date.getFullYear(), 0, 0);
+            const diff = date - start;
+            const oneDay = 1000 * 60 * 60 * 24;
+            const dayOfYear = Math.floor(diff / oneDay);
+            
+            // حساب زاوية الانحراف الشمسي (درجة)
+            const declination = 23.45 * Math.sin((2 * Math.PI / 365) * (dayOfYear - 81));
+            
+            // حساب زاوية الارتفاع الشمسي عند الظهر
+            const noonElevation = 90 - latitude + declination;
+            
+            // حساب زاوية الانحدار المثلى
+            const optimalTilt = latitude * 0.9 + 3;
+            
+            // حساب وقت الشروق والغروب
+            const sunriseHour = 12 - (1 / 15) * Math.acos(-Math.tan(latitude * Math.PI / 180) * Math.tan(declination * Math.PI / 180)) * 180 / Math.PI;
+            const sunsetHour = 12 + (1 / 15) * Math.acos(-Math.tan(latitude * Math.PI / 180) * Math.tan(declination * Math.PI / 180)) * 180 / Math.PI;
+            
+            // عرض النتائج
+            document.getElementById('elevation-angle').textContent = noonElevation.toFixed(2) + '°';
+            document.getElementById('azimuth-angle').textContent = '180° (جنوب)';
+            document.getElementById('optimal-tilt').textContent = optimalTilt.toFixed(2) + '°';
+            document.getElementById('sunrise').textContent = Math.floor(sunriseHour) + ':' + Math.round((sunriseHour % 1) * 60).toString().padStart(2, '0');
+            document.getElementById('sunset').textContent = Math.floor(sunsetHour) + ':' + Math.round((sunsetHour % 1) * 60).toString().padStart(2, '0');
+            
+            document.getElementById('results').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

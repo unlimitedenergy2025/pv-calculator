@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV Calculator - حساب الألواح الشمسية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 15px auto;
+            max-width: 90%;
+            border-radius: 50px;
+        }
+        .nav-links a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .result-card {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="PV Calculator Logo" width="50">
+            <h1>حساب الألواح الشمسية</h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="engineering.html"><i class="fas fa-arrow-right"></i> رجوع للخدمات الهندسية</a>
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2><i class="fas fa-solar-panel"></i> حساب عدد الألواح الشمسية المطلوبة</h2>
+        <p>أدخل بيانات نظامك لتحديد عدد الألواح الشمسية المناسبة</p>
+        
+        <form id="panel-form">
+            <div class="form-group">
+                <label for="required-power">القدرة المطلوبة (واط):</label>
+                <input type="number" id="required-power" min="1" placeholder="مثال: 5000" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="panel-wattage">قدرة اللوح الواحد (واط):</label>
+                <input type="number" id="panel-wattage" min="100" value="400" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="panel-efficiency">كفاءة الألواح (%):</label>
+                <input type="number" id="panel-efficiency" min="1" max="100" value="18" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="panel-type">نوع الألواح:</label>
+                <select id="panel-type" required>
+                    <option value="mono">مونو كريستالين</option>
+                    <option value="poly">بولي كريستالين</option>
+                    <option value="thin">أغشية رقيقة</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="sun-hours">متوسط ساعات الشمس اليومية:</label>
+                <input type="number" id="sun-hours" min="1" max="24" step="0.1" value="5.5" required>
+            </div>
+            
+            <button type="submit" class="btn">حساب الألواح <i class="fas fa-calculator"></i></button>
+        </form>
+        
+        <div class="result-card" id="results" style="display: none;">
+            <h3><i class="fas fa-sun"></i> النتائج:</h3>
+            
+            <div class="result-item">
+                <span>عدد الألواح المطلوبة:</span>
+                <span id="panel-count">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>المساحة الإجمالية:</span>
+                <span id="total-area">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>التكلفة التقريبية:</span>
+                <span id="panel-cost">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>الإنتاج اليومي المتوقع:</span>
+                <span id="daily-output">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>العمر الافتراضي:</span>
+                <span id="panel-life">--</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 PV Calculator. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        document.getElementById('panel-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // الحصول على القيم المدخلة
+            const requiredPower = parseFloat(document.getElementById('required-power').value);
+            const panelWattage = parseFloat(document.getElementById('panel-wattage').value);
+            const panelEfficiency = parseFloat(document.getElementById('panel-efficiency').value);
+            const panelType = document.getElementById('panel-type').value;
+            const sunHours = parseFloat(document.getElementById('sun-hours').value);
+            
+            // حساب عدد الألواح المطلوبة مع هامش أمان 15%
+            const panelCount = Math.ceil((requiredPower / (panelWattage * (panelEfficiency / 100))) * 1.15);
+            
+            // حساب المساحة الإجمالية (افتراض 1.8 متر مربع لكل لوح 400 واط)
+            const totalArea = panelCount * (1.8 * (400 / panelWattage));
+            
+            // التكلفة التقريبية
+            let costPerPanel = 0;
+            let lifeExpectancy = '';
+            
+            switch(panelType) {
+                case 'mono':
+                    costPerPanel = 1200; // ريال سعودي
+                    lifeExpectancy = '25-30 سنة';
+                    break;
+                case 'poly':
+                    costPerPanel = 900;
+                    lifeExpectancy = '20-25 سنة';
+                    break;
+                case 'thin':
+                    costPerPanel = 800;
+                    lifeExpectancy = '15-20 سنة';
+                    break;
+            }
+            
+            const panelCost = panelCount * costPerPanel;
+            const dailyOutput = panelCount * panelWattage * sunHours * (panelEfficiency / 100);
+            
+            // عرض النتائج
+            document.getElementById('panel-count').textContent = panelCount + ' لوح';
+            document.getElementById('total-area').textContent = totalArea.toFixed(2) + ' متر مربع';
+            document.getElementById('panel-cost').textContent = panelCost.toLocaleString() + ' ريال';
+            document.getElementById('daily-output').textContent = dailyOutput.toFixed(2) + ' واط/ساعة';
+            document.getElementById('panel-life').textContent = lifeExpectancy;
+            
+            document.getElementById('results').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

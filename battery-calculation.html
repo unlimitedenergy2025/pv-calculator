@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV Calculator - حساب البطاريات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 15px auto;
+            max-width: 90%;
+            border-radius: 50px;
+        }
+        .nav-links a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .result-card {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="PV Calculator Logo" width="50">
+            <h1>حساب البطاريات</h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="engineering.html"><i class="fas fa-arrow-right"></i> رجوع للخدمات الهندسية</a>
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2><i class="fas fa-car-battery"></i> حساب سعة البطاريات المطلوبة</h2>
+        <p>أدخل بيانات نظامك لتحديد سعة البطاريات المناسبة</p>
+        
+        <form id="battery-form">
+            <div class="form-group">
+                <label for="daily-consumption">الاستهلاك اليومي (واط/ساعة):</label>
+                <input type="number" id="daily-consumption" min="1" placeholder="مثال: 5000" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="autonomy-days">أيام التخزين المطلوبة:</label>
+                <input type="number" id="autonomy-days" min="1" value="2" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="system-voltage">جهد النظام (فولت):</label>
+                <select id="system-voltage" required>
+                    <option value="12">12 فولت</option>
+                    <option value="24">24 فولت</option>
+                    <option value="48" selected>48 فولت</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="dod">عمق التفريغ (DOD %):</label>
+                <input type="number" id="dod" min="10" max="100" value="50" required>
+                <small>النسبة المئوية للطاقة التي يمكن استهلاكها من البطارية</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="battery-type">نوع البطارية:</label>
+                <select id="battery-type" required>
+                    <option value="lead-acid">بطارية الرصاص الحمضية</option>
+                    <option value="lithium">بطارية الليثيوم</option>
+                    <option value="gel">بطارية الجل</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn">حساب البطاريات <i class="fas fa-calculator"></i></button>
+        </form>
+        
+        <div class="result-card" id="results" style="display: none;">
+            <h3><i class="fas fa-battery-three-quarters"></i> النتائج:</h3>
+            
+            <div class="result-item">
+                <span>السعة المطلوبة:</span>
+                <span id="total-capacity">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>عدد البطاريات (200 أمبير/ساعة):</span>
+                <span id="battery-count">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>التكلفة التقريبية:</span>
+                <span id="estimated-cost">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>العمر الافتراضي:</span>
+                <span id="battery-life">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>الوزن التقريبي:</span>
+                <span id="total-weight">--</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 PV Calculator. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        document.getElementById('battery-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // الحصول على القيم المدخلة
+            const dailyConsumption = parseFloat(document.getElementById('daily-consumption').value);
+            const autonomyDays = parseFloat(document.getElementById('autonomy-days').value);
+            const systemVoltage = parseFloat(document.getElementById('system-voltage').value);
+            const dod = parseFloat(document.getElementById('dod').value);
+            const batteryType = document.getElementById('battery-type').value;
+            
+            // حساب السعة المطلوبة (أمبير/ساعة)
+            const totalCapacity = (dailyConsumption * autonomyDays) / (systemVoltage * (dod / 100));
+            
+            // حساب عدد البطاريات (افتراض سعة 200 أمبير/ساعة لكل بطارية)
+            const batteryCount = Math.ceil(totalCapacity / 200);
+            
+            // التكلفة التقريبية
+            let costPerBattery = 0;
+            let lifeExpectancy = '';
+            let weightPerBattery = 0;
+            
+            switch(batteryType) {
+                case 'lead-acid':
+                    costPerBattery = 1500; // ريال سعودي
+                    lifeExpectancy = '3-5 سنوات';
+                    weightPerBattery = 60; // كجم
+                    break;
+                case 'lithium':
+                    costPerBattery = 4000;
+                    lifeExpectancy = '8-10 سنوات';
+                    weightPerBattery = 25;
+                    break;
+                case 'gel':
+                    costPerBattery = 2500;
+                    lifeExpectancy = '5-7 سنوات';
+                    weightPerBattery = 50;
+                    break;
+            }
+            
+            const estimatedCost = batteryCount * costPerBattery;
+            const totalWeight = batteryCount * weightPerBattery;
+            
+            // عرض النتائج
+            document.getElementById('total-capacity').textContent = totalCapacity.toFixed(2) + ' أمبير/ساعة';
+            document.getElementById('battery-count').textContent = batteryCount + ' بطارية';
+            document.getElementById('estimated-cost').textContent = estimatedCost.toLocaleString() + ' ريال';
+            document.getElementById('battery-life').textContent = lifeExpectancy;
+            document.getElementById('total-weight').textContent = totalWeight + ' كجم';
+            
+            document.getElementById('results').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
