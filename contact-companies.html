@@ -64,6 +64,52 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
+        .selected-company {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #eee;
+        }
+        
+        .selected-company-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .company-logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-left: 15px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            padding: 5px;
+            background: white;
+        }
+        
+        .company-info h3 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+        
+        .company-rating {
+            color: #f39c12;
+            margin: 5px 0;
+        }
+        
+        .company-contact div {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .company-contact i {
+            margin-left: 8px;
+            color: var(--secondary-color);
+        }
+        
         .form-group {
             margin-bottom: 20px;
         }
@@ -109,50 +155,12 @@
             transform: translateY(-2px);
         }
         
-        .company-selector {
-            margin-bottom: 30px;
+        .btn-whatsapp {
+            background-color: #25D366;
         }
         
-        .company-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .company-card.selected {
-            border: 2px solid var(--success-color);
-            background-color: rgba(39, 174, 96, 0.05);
-        }
-        
-        .company-logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #eee;
-            margin-left: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .company-info {
-            flex: 1;
-        }
-        
-        .company-info h3 {
-            margin: 0;
-            color: var(--primary-color);
-        }
-        
-        .company-info p {
-            margin: 5px 0 0;
-            color: #7f8c8d;
-            font-size: 0.9rem;
+        .btn-whatsapp:hover {
+            background-color: #1da851;
         }
         
         .success-message {
@@ -183,50 +191,23 @@
         </div>
         
         <div class="nav-links">
-            <a href="general.html"><i class="fas fa-arrow-right"></i> رجوع للخدمات العامة</a>
+            <a href="companies.html"><i class="fas fa-arrow-right"></i> رجوع لقائمة الشركات</a>
             <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
         </div>
     </header>
 
     <div class="container">
-        <h2><i class="fas fa-store"></i> التواصل مع الشركات الموردة</h2>
-        <p>اختر الشركة التي تريد التواصل معها وأدخل بياناتك لطلب عرض سعر</p>
+        <h2><i class="fas fa-store"></i> طلب عرض سعر</h2>
+        <p>أدخل بياناتك لطلب عرض سعر من الشركة المحددة</p>
         
-        <div class="company-selector">
-            <h3>اختر الشركة:</h3>
-            
-            <div class="company-card selected" data-company="1">
-                <div class="company-logo">
-                    <i class="fas fa-solar-panel"></i>
-                </div>
-                <div class="company-info">
-                    <h3>شركة الطاقة الخضراء</h3>
-                    <p>متخصصون في أنظمة الطاقة الشمسية المنزلية والتجارية</p>
-                </div>
-            </div>
-            
-            <div class="company-card" data-company="2">
-                <div class="company-logo">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <div class="company-info">
-                    <h3>الشركة السعودية للطاقة الشمسية</h3>
-                    <p>رائدة في مجال الطاقة المتجددة</p>
-                </div>
-            </div>
-            
-            <div class="company-card" data-company="3">
-                <div class="company-logo">
-                    <i class="fas fa-car-battery"></i>
-                </div>
-                <div class="company-info">
-                    <h3>تكنو سولار</h3>
-                    <p>متخصصون في الأنظمة الهجينة والمنفصلة عن الشبكة</p>
-                </div>
-            </div>
+        <!-- قسم عرض معلومات الشركة المحددة -->
+        <div class="selected-company" id="selected-company">
+            <!-- سيتم ملء هذا القسم بالبيانات عبر JavaScript -->
         </div>
         
         <form id="contact-form">
+            <input type="hidden" id="company-id">
+            
             <div class="form-group">
                 <label for="name">الاسم الكامل:</label>
                 <input type="text" id="name" required>
@@ -267,7 +248,9 @@
                 <textarea id="message" rows="4"></textarea>
             </div>
             
-            <button type="submit" class="btn">إرسال الطلب <i class="fas fa-paper-plane"></i></button>
+            <button type="button" id="send-whatsapp" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> إرسال عبر واتساب
+            </button>
         </form>
         
         <div class="success-message" id="success-message">
@@ -281,34 +264,168 @@
     </footer>
 
     <script>
-        // اختيار الشركة
-        document.querySelectorAll('.company-card').forEach(card => {
-            card.addEventListener('click', function() {
-                document.querySelectorAll('.company-card').forEach(c => {
-                    c.classList.remove('selected');
-                });
-                this.classList.add('selected');
-            });
-        });
+        // قائمة الشركات (يمكن استبدالها ببيانات حقيقية من قاعدة بيانات)
+        const companies = {
+            1: {
+                name: "Axis Jordan for Renewable Energy",
+                logo: "logos/axis-jordan.png",
+                rating: 4.5,
+                description: "متخصصون في أنظمة الطاقة الشمسية المنزلية والتجارية، معتمدة من قبل وزارة الطاقة.",
+                location: "عمان، الأردن",
+                phone: "+962-6-5685219",
+                email: "moh.axis@outlook.com"
+            },
+            2: {
+                name: "AGE Energy",
+                logo: "logos/age-energy.png",
+                rating: 5.0,
+                description: "رائدة في مجال الطاقة المتجددة، تقدم حلولاً متكاملة للقطاعات السكنية والتجارية والصناعية.",
+                location: "عمان، الأردن",
+                phone: "+962-6-5688097",
+                email: "info@ageenergy.com"
+            },
+            3: {
+                name: "Al-Manhal Renewable Energy",
+                logo: "logos/al-manhal.png",
+                rating: 4.0,
+                description: "متخصصون في أنظمة الطاقة الشمسية الهجينة والمنفصلة عن الشبكة، بخبرة تزيد عن 10 سنوات.",
+                location: "عمان، الأردن",
+                phone: "+962-6-5604101",
+                email: "info@al-manhal.com"
+            },
+            4: {
+                name: "Philadelphia Solar",
+                logo: "logos/philadelphia.png",
+                rating: 4.8,
+                description: "تقدم حلولاً مبتكرة في مجال الطاقة الشمسية مع ضمانات ممتدة وخدمة ما بعد البيع متميزة.",
+                location: "عمان، الأردن",
+                phone: "+962-6-4716601",
+                email: "info@philadelphia-solar.com"
+            },
+            5: {
+                name: "Kawar Energy",
+                logo: "logos/kawar.png",
+                rating: 4.3,
+                description: "متخصصون في أنظمة الطاقة الشمسية للمزارع والمصانع والمنشآت الكبيرة.",
+                location: "عمان، الأردن",
+                phone: "+962-6-5609500",
+                email: "info@kawarenergy.com"
+            }
+        };
+
+        // استخراج معرف الشركة من URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const companyId = urlParams.get('company');
         
-        // إرسال النموذج
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // عرض معلومات الشركة المحددة
+        function displayCompanyInfo(companyId) {
+            const company = companies[companyId];
+            if (!company) {
+                window.location.href = 'companies.html';
+                return;
+            }
             
-            // هنا يمكنك إضافة كود لإرسال البيانات إلى الخادم
-            // أو حفظها في localStorage
+            document.getElementById('company-id').value = companyId;
+            
+            const companyElement = document.getElementById('selected-company');
+            companyElement.innerHTML = `
+                <div class="selected-company-header">
+                    <img src="${company.logo}" alt="${company.name}" class="company-logo-img">
+                    <div class="company-info">
+                        <h3>${company.name}</h3>
+                        <div class="company-rating">
+                            ${generateRatingStars(company.rating)}
+                            <span>(${company.rating})</span>
+                        </div>
+                    </div>
+                </div>
+                <p>${company.description}</p>
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> ${company.location}</div>
+                    <div><i class="fas fa-phone"></i> ${company.phone}</div>
+                    <div><i class="fas fa-envelope"></i> ${company.email}</div>
+                </div>
+            `;
+        }
+        
+        // دالة لإنشاء نجوم التقييم
+        function generateRatingStars(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+        
+        // دالة لإرسال الرسالة عبر واتساب
+        function sendWhatsAppMessage() {
+            const companyId = document.getElementById('company-id').value;
+            const company = companies[companyId];
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const city = document.getElementById('city').value;
+            const systemType = document.getElementById('system-type').value;
+            const systemSize = document.getElementById('system-size').value;
+            const message = document.getElementById('message').value;
+            
+            // التحقق من الحقول المطلوبة
+            if (!name || !phone || !city || !systemType) {
+                alert('الرجاء ملء جميع الحقول المطلوبة');
+                return;
+            }
+            
+            // إنشاء نص الرسالة
+            let whatsappMessage = `طلب عرض سعر جديد%0A%0A`;
+            whatsappMessage += `الشركة: ${company.name}%0A`;
+            whatsappMessage += `الاسم: ${name}%0A`;
+            whatsappMessage += `الجوال: ${phone}%0A`;
+            whatsappMessage += `المدينة: ${city}%0A`;
+            whatsappMessage += `نوع النظام: ${systemType}%0A`;
+            
+            if (email) whatsappMessage += `البريد الإلكتروني: ${email}%0A`;
+            if (systemSize) whatsappMessage += `حجم النظام: ${systemSize} كيلوواط%0A`;
+            if (message) whatsappMessage += `ملاحظات: ${message}%0A`;
+            
+            // رقم واتساب الهدف (يمكن تغييره حسب الحاجة)
+            const whatsappNumber = '962781339210';
+            
+            // إنشاء رابط واتساب
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            
+            // فتح الرابط في نافذة جديدة
+            window.open(whatsappUrl, '_blank');
             
             // عرض رسالة النجاح
             document.getElementById('success-message').style.display = 'block';
-            
-            // مسح النموذج
-            this.reset();
-            
-            // التمرير إلى رسالة النجاح
             document.getElementById('success-message').scrollIntoView({
                 behavior: 'smooth'
             });
-        });
+        }
+        
+        // عند تحميل الصفحة، عرض معلومات الشركة المحددة
+        if (companyId) {
+            displayCompanyInfo(companyId);
+        } else {
+            window.location.href = 'companies.html';
+        }
+        
+        // إضافة مستمع حدث لزر واتساب
+        document.getElementById('send-whatsapp').addEventListener('click', sendWhatsAppMessage);
     </script>
 </body>
 </html>
