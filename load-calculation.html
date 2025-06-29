@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV Calculator - حساب الحمل الكهربائي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 15px auto;
+            max-width: 90%;
+            border-radius: 50px;
+        }
+        .nav-links a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .device-list {
+            margin-top: 20px;
+        }
+        .device-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .remove-device {
+            color: #e74c3c;
+            cursor: pointer;
+        }
+        .result-card {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="PV Calculator Logo" width="50">
+            <h1>حساب الحمل الكهربائي</h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="engineering.html"><i class="fas fa-arrow-right"></i> رجوع للخدمات الهندسية</a>
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2><i class="fas fa-bolt"></i> حساب الحمل الكهربائي</h2>
+        <p>أضف الأجهزة الكهربائية لحساب إجمالي استهلاك الطاقة اليومي</p>
+        
+        <form id="add-device-form">
+            <div class="form-group">
+                <label for="device-name">اسم الجهاز:</label>
+                <input type="text" id="device-name" placeholder="مثال: ثلاجة" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="device-wattage">القدرة (واط):</label>
+                <input type="number" id="device-wattage" min="1" placeholder="200" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="device-hours">ساعات التشغيل اليومية:</label>
+                <input type="number" id="device-hours" min="0.1" step="0.1" max="24" placeholder="8" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="device-quantity">الكمية:</label>
+                <input type="number" id="device-quantity" min="1" value="1" required>
+            </div>
+            
+            <button type="button" id="add-btn" class="btn">إضافة جهاز <i class="fas fa-plus"></i></button>
+        </form>
+        
+        <div class="device-list" id="device-list">
+            <!-- الأجهزة ستضاف هنا -->
+        </div>
+        
+        <button id="calculate-btn" class="btn" style="width: 100%;">حساب الحمل الكلي <i class="fas fa-calculator"></i></button>
+        
+        <div class="result-card" id="results" style="display: none;">
+            <h3><i class="fas fa-chart-pie"></i> النتائج:</h3>
+            
+            <div class="result-item">
+                <span>إجمالي الاستهلاك اليومي:</span>
+                <span id="total-consumption">0</span> واط/ساعة
+            </div>
+            
+            <div class="result-item">
+                <span>الاستهلاك الشهري:</span>
+                <span id="monthly-consumption">0</span> كيلوواط/ساعة
+            </div>
+            
+            <div class="result-item">
+                <span>الاستهلاك السنوي:</span>
+                <span id="yearly-consumption">0</span> كيلوواط/ساعة
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 PV Calculator. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        const deviceList = document.getElementById('device-list');
+        const addBtn = document.getElementById('add-btn');
+        const calculateBtn = document.getElementById('calculate-btn');
+        const resultsDiv = document.getElementById('results');
+        
+        let devices = [];
+        
+        addBtn.addEventListener('click', function() {
+            const name = document.getElementById('device-name').value;
+            const wattage = parseFloat(document.getElementById('device-wattage').value);
+            const hours = parseFloat(document.getElementById('device-hours').value);
+            const quantity = parseInt(document.getElementById('device-quantity').value);
+            
+            if (!name || !wattage || !hours || !quantity) {
+                alert('الرجاء إدخال جميع بيانات الجهاز');
+                return;
+            }
+            
+            const device = {
+                name,
+                wattage,
+                hours,
+                quantity
+            };
+            
+            devices.push(device);
+            updateDeviceList();
+            
+            // مسح حقول الإدخال
+            document.getElementById('device-name').value = '';
+            document.getElementById('device-wattage').value = '';
+            document.getElementById('device-hours').value = '';
+            document.getElementById('device-quantity').value = '1';
+        });
+        
+        function updateDeviceList() {
+            deviceList.innerHTML = '';
+            
+            devices.forEach((device, index) => {
+                const total = device.wattage * device.hours * device.quantity;
+                
+                const deviceItem = document.createElement('div');
+                deviceItem.className = 'device-item';
+                deviceItem.innerHTML = `
+                    <div>
+                        <strong>${device.name}</strong>
+                        <div>${device.wattage} واط × ${device.hours} ساعات × ${device.quantity} عدد = ${total.toFixed(2)} واط/ساعة</div>
+                    </div>
+                    <i class="fas fa-times remove-device" data-index="${index}"></i>
+                `;
+                
+                deviceList.appendChild(deviceItem);
+            });
+            
+            // إضافة أحداث لحذف الأجهزة
+            document.querySelectorAll('.remove-device').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    devices.splice(index, 1);
+                    updateDeviceList();
+                });
+            });
+        }
+        
+        calculateBtn.addEventListener('click', function() {
+            if (devices.length === 0) {
+                alert('الرجاء إضافة أجهزة أولاً');
+                return;
+            }
+            
+            let total = 0;
+            devices.forEach(device => {
+                total += device.wattage * device.hours * device.quantity;
+            });
+            
+            document.getElementById('total-consumption').textContent = total.toFixed(2);
+            document.getElementById('monthly-consumption').textContent = (total * 30 / 1000).toFixed(2);
+            document.getElementById('yearly-consumption').textContent = (total * 365 / 1000).toFixed(2);
+            
+            resultsDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

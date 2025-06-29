@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة أنظمة الطاقة الشمسية </title>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #005a8c, #008ecc);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .logo img {
+            height: 50px;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 12px;
+            margin: 15px auto;
+            max-width: 90%;
+            border-radius: 30px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            margin: 5px 8px;
+            padding: 8px 18px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+        h1, h2, h3 {
+            color: #005a8c;
+        }
+        h2 {
+            border-bottom: 2px solid #e1e1e1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 22px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #005a8c;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #008ecc;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 142, 204, 0.1);
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #008ecc, #005a8c);
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: linear-gradient(to right, #0077b3, #004a7a);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .result-card {
+            background-color: #f8fafb;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 35px;
+            border-right: 4px solid #008ecc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e1e1e1;
+            font-size: 16px;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        .result-item span:first-child {
+            font-weight: 600;
+            color: #005a8c;
+        }
+        .result-item span:last-child {
+            font-weight: 500;
+            color: #333;
+        }
+        footer {
+            background-color: #005a8c;
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+        .note {
+            background-color: #fff9e6;
+            padding: 15px;
+            border-radius: 6px;
+            border-right: 4px solid #ffcc00;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+                padding: 15px;
+            }
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="شعار الأردن" width="40">
+            <h1>حاسبة متطلبات الأنظمة الشمسية  </h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="engineering.html"><i class="fas fa-arrow-right"></i> رجوع للخدمات الهندسية</a>
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+            <a href="#"><i class="fas fa-phone"></i> اتصل بنا</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2><i class="fas fa-solar-panel"></i> حساب متطلبات الكابلات والهياكل</h2>
+        <p>أدخل بيانات نظام الطاقة الشمسية الخاص بك لحساب متطلبات الكابلات والهياكل حسب المعايير الأردنية</p>
+        
+        <form id="cable-form">
+            <div class="form-group">
+                <label for="system-power"><i class="fas fa-bolt"></i> قدرة النظام (كيلوواط):</label>
+                <input type="number" id="system-power" min="0.1" step="0.1" placeholder="مثال: 5.5" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="system-voltage"><i class="fas fa-bolt"></i> جهد النظام (فولت):</label>
+                <select id="system-voltage" required>
+                    <option value="12">12 فولت (أنظمة صغيرة)</option>
+                    <option value="24">24 فولت (أنظمة متوسطة)</option>
+                    <option value="48" selected>48 فولت (أنظمة كبيرة)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="distance"><i class="fas fa-ruler-horizontal"></i> المسافة بين الألواح والعاكس (متر):</label>
+                <input type="number" id="distance" min="1" value="15" required>
+                <small style="color:#666;">يجب إضافة 20% هامش أمان للكابلات</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="panel-count"><i class="fas fa-solar-panel"></i> عدد الألواح الشمسية:</label>
+                <input type="number" id="panel-count" min="1" value="10" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="panel-dimensions"><i class="fas fa-ruler-combined"></i> أبعاد اللوح الشمسي (متر):</label>
+                <input type="text" id="panel-dimensions" placeholder="الطول x العرض" value="1.7x1.0" required>
+                <small style="color:#666;">مثال: 1.7x1.0 للألواح القياسية</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="roof-type"><i class="fas fa-home"></i> نوع التركيب:</label>
+                <select id="roof-type" required>
+                    <option value="flat">سطح مستو</option>
+                    <option value="tilted">سطح مائل</option>
+                    <option value="ground">تركيب أرضي</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn"><i class="fas fa-calculator"></i> حساب المتطلبات</button>
+        </form>
+        
+        <div class="result-card" id="results" style="display: none;">
+            <h3><i class="fas fa-chart-line"></i> نتائج الحساب:</h3>
+            
+            <div class="result-item">
+                <span>التيار الأقصى للنظام:</span>
+                <span id="max-current">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>مقاس الكابل الموصى به:</span>
+                <span id="cable-size">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>الطول الإجمالي للكابلات:</span>
+                <span id="cable-length">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>كمية الحديد للهيكل:</span>
+                <span id="iron-required">--</span>
+            </div>
+            
+            <div class="result-item">
+                <span>مساحة الهيكل المطلوبة:</span>
+                <span id="structure-area">--</span>
+            </div>
+            
+            <div class="result-item" style="font-weight:bold; color:#005a8c;">
+                <span>التكلفة التقريبية (دينار أردني):</span>
+                <span id="material-cost">--</span>
+            </div>
+            
+            <div class="note">
+                <i class="fas fa-info-circle"></i> <strong>ملاحظة:</strong> هذه التقديرات تقريبية وقد تختلف حسب الموقع والمواد المستخدمة. يوصى باستشارة مهندس متخصص قبل التنفيذ.
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 حاسبة الأنظمة الشمسية - الأردن | تم التطوير وفقاً للمعايير الأردنية</p>
+        <p>جميع الأسعار بالدينار الأردني وتشمل ضريبة المبيعات</p>
+    </footer>
+
+    <script>
+        document.getElementById('cable-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // الحصول على القيم المدخلة
+            const systemPower = parseFloat(document.getElementById('system-power').value) * 1000; // تحويل من كيلوواط إلى واط
+            const systemVoltage = parseFloat(document.getElementById('system-voltage').value);
+            const distance = parseFloat(document.getElementById('distance').value);
+            const panelCount = parseInt(document.getElementById('panel-count').value);
+            const panelDimensions = document.getElementById('panel-dimensions').value.split('x');
+            const panelLength = parseFloat(panelDimensions[0]);
+            const panelWidth = parseFloat(panelDimensions[1]);
+            const roofType = document.getElementById('roof-type').value;
+            
+            // حساب التيار الأقصى (واط / فولت)
+            const maxCurrent = systemPower / systemVoltage;
+            
+            // تحديد مقاس الكابل بناءً على التيار (حسب المواصفات الأردنية)
+            let cableSize = '';
+            let cablePricePerMeter = 0;
+            
+            if (maxCurrent <= 8) {
+                cableSize = '6 مم² (PVC)';
+                cablePricePerMeter = 1.5; // دينار أردني للمتر
+            } else if (maxCurrent <= 12) {
+                cableSize = '10 مم² (PVC)';
+                cablePricePerMeter = 2.2;
+            } else if (maxCurrent <= 18) {
+                cableSize = '16 مم² (XLPE)';
+                cablePricePerMeter = 3.5;
+            } else if (maxCurrent <= 25) {
+                cableSize = '25 مم² (XLPE)';
+                cablePricePerMeter = 5.0;
+            } else if (maxCurrent <= 35) {
+                cableSize = '35 مم² (XLPE)';
+                cablePricePerMeter = 7.0;
+            } else if (maxCurrent <= 50) {
+                cableSize = '50 مم² (XLPE)';
+                cablePricePerMeter = 9.5;
+            } else {
+                cableSize = '70 مم² (XLPE) - يوصى باستشارة مهندس';
+                cablePricePerMeter = 13.0;
+            }
+            
+            // حساب الطول الإجمالي للكابلات (مسافة × 2 + هامش 25% حسب المعايير الأردنية)
+            const cableLength = Math.ceil(distance * 2 * 1.25);
+            const cableCost = cableLength * cablePricePerMeter;
+            
+            // حساب متطلبات الهيكل حسب نوع السطح
+            let ironPerPanel = 0;
+            if (roofType === 'flat') {
+                ironPerPanel = 3.5; // كجم للوح للسطح المستوي
+            } else if (roofType === 'tilted') {
+                ironPerPanel = 4.2; // كجم للوح للسطح المائل
+            } else {
+                ironPerPanel = 5.0; // كجم للوح للتركيب الأرضي
+            }
+            
+            const ironRequired = Math.ceil(panelCount * ironPerPanel);
+            const ironCost = ironRequired * 1.8; // سعر الحديد ~1.8 دينار/كجم
+            
+            // مساحة الهيكل
+            const structureArea = (panelCount * panelLength * panelWidth).toFixed(2);
+            
+            // حساب التكلفة الإجمالية (كابلات + حديد + 15% مصاريف أخرى)
+            const materialCost = (cableCost + ironCost) * 1.15;
+            
+            // عرض النتائج
+            document.getElementById('max-current').textContent = maxCurrent.toFixed(2) + ' أمبير';
+            document.getElementById('cable-size').textContent = cableSize;
+            document.getElementById('cable-length').textContent = cableLength + ' متر (' + cableCost.toFixed(2) + ' دينار)';
+            document.getElementById('iron-required').textContent = ironRequired + ' كجم (' + ironCost.toFixed(2) + ' دينار)';
+            document.getElementById('structure-area').textContent = structureArea + ' متر مربع';
+            document.getElementById('material-cost').textContent = materialCost.toFixed(2) + ' دينار أردني';
+            
+            document.getElementById('results').style.display = 'block';
+            
+            // التمرير إلى النتائج بسلاسة
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // التحقق من صحة أبعاد الألواح
+        document.getElementById('panel-dimensions').addEventListener('blur', function() {
+            const value = this.value;
+            if (!value.includes('x') || value.split('x').length !== 2) {
+                alert('الرجاء إدخال الأبعاد بالصيغة الصحيحة (الطول x العرض) مثل: 1.7x1.0');
+                this.focus();
+            }
+        });
+    </script>
+</body>
+</html>

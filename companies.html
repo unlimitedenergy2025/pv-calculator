@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV Calculator - الشركات الموصى بها في الأردن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 15px auto;
+            max-width: 90%;
+            border-radius: 50px;
+        }
+        
+        .nav-links a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .company-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .company-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .company-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+        
+        .company-card p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .company-rating {
+            color: var(--warning-color);
+            margin-bottom: 15px;
+        }
+        
+        .company-contact {
+            margin-top: 15px;
+        }
+        
+        .company-contact div {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .company-contact i {
+            margin-left: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .company-logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            padding: 5px;
+            background: white;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .company-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+            }
+            
+            .nav-links a {
+                margin: 5px;
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="PV Calculator Logo" width="50">
+            <h1>الشركات الموصى بها في الأردن</h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="general.html"><i class="fas fa-arrow-right"></i> رجوع للخدمات العامة</a>
+            <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+        </div>
+    </header>
+
+    < class="container">
+        <h2><i class="fas fa-store"></i> الشركات الموثوقة في مجال الطاقة الشمسية في الأردن</h2>
+        <p>قائمة بالشركات المعتمدة والموثوقة في المملكة الأردنية الهاشمية</p>
+        
+        <div class="company-grid">
+            <!-- شركة 1 -->
+            <div class="company-card">
+                <img src="logos/axis-jordan.png" alt="Axis Jordan Logo" class="company-logo-img">
+                <h3>Axis Jordan for Renewable Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.5) </span>
+                </div>
+                <p>متخصصون في أنظمة الطاقة الشمسية المنزلية والتجارية، معتمدة من قبل وزارة الطاقة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5685219</div>
+                    <div><i class="fas fa-envelope"></i> moh.axis@outlook.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=1" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+            
+            <!-- شركة 2 -->
+            <div class="company-card">
+                <img src="logos/age-energy.png" alt="AGE Energy Logo" class="company-logo-img">
+                <h3>AGE Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (5.0) </span>
+                </div>
+                <p>رائدة في مجال الطاقة المتجددة، تقدم حلولاً متكاملة للقطاعات السكنية والتجارية والصناعية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5688097</div>
+                    <div><i class="fas fa-envelope"></i> info@ageenergy.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=2" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+            
+            <!-- شركة 3 -->
+            <div class="company-card">
+                <img src="logos/al-manhal.png" alt="Al Manhal Logo" class="company-logo-img">
+                <h3>Al-Manhal Renewable Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>متخصصون في أنظمة الطاقة الشمسية الهجينة والمنفصلة عن الشبكة، بخبرة تزيد عن 10 سنوات.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5604101</div>
+                    <div><i class="fas fa-envelope"></i> info@al-manhal.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=3" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+            
+            <!-- شركة 4 -->
+            <div class="company-card">
+                <img src="logos/philadelphia.png" alt="Philadelphia Solar Logo" class="company-logo-img">
+                <h3>Philadelphia Solar</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.8) </span>
+                </div>
+                <p>تقدم حلولاً مبتكرة في مجال الطاقة الشمسية مع ضمانات ممتدة وخدمة ما بعد البيع متميزة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4716601</div>
+                    <div><i class="fas fa-envelope"></i> info@philadelphia-solar.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=4" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+            
+            <!-- شركة 5 -->
+            <div class="company-card">
+                <img src="logos/kawar.png" alt="Kawar Energy Logo" class="company-logo-img">
+                <h3>Kawar Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>متخصصون في أنظمة الطاقة الشمسية للمزارع والمصانع والمنشآت الكبيرة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5609500</div>
+                    <div><i class="fas fa-envelope"></i> info@kawarenergy.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=5" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+            
+            <!-- شركة 6 -->
+            <div class="company-card">
+                <img src="logos/yellow-door.png" alt="Yellow Door Energy Logo" class="company-logo-img">
+                <h3>Yellow Door Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.2) </span>
+                </div>
+                <p>تقدم حلولاً متكاملة للطاقة الشمسية مع أنظمة مراقبة ذكية وتتبع للأداء.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5541655</div>
+                    <div><i class="fas fa-envelope"></i> gosolar@yellowdoorenergy.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=6" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+            
+            <!-- شركة 7 -->
+            <div class="company-card">
+                <img src="logos/edama.png" alt="Edama Solar Logo" class="company-logo-img">
+                <h3>Edama Solar Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.4) </span>
+                </div>
+                <p>حلول طاقة شمسية متكاملة للقطاعات السكنية والتجارية والصناعية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5829808</div>
+                    <div><i class="fas fa-envelope"></i> info@edamasolar.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=7" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+            
+            <!-- شركة 8 -->
+            <div class="company-card">
+                <img src="logos/ecosol.png" alt="Ecosol Logo" class="company-logo-img">
+                <h3>Eco Engineering and Energy Solutions (ECOSOL)</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.1) </span>
+                </div>
+                <p>حلول هندسية متكاملة للطاقة الشمسية والطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5330070</div>
+                    <div><i class="fas fa-envelope"></i> info@ecosol-int.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=8" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+                        <!-- شركة 9 -->
+            <div class="company-card">
+                <img src="logos/alfa-eee.png" alt="Alfa-EEE Logo" class="company-logo-img">
+                <h3>Alfa for Energy, Environment & Engineering</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول متكاملة في مجال الطاقة والبيئة والهندسة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5333817</div>
+                    <div><i class="fas fa-envelope"></i> g.khdairi@alfa-eee.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=9" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 10 -->
+            <div class="company-card">
+                <img src="logos/alcazar.png" alt="Alcazar Energy Logo" class="company-logo-img">
+                <h3>Alcazar Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.2) </span>
+                </div>
+                <p>مطور مشاريع طاقة متجددة في منطقة الشرق الأوسط.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4614005</div>
+                    <div><i class="fas fa-envelope"></i> info@alcazarenergy.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=10" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 11 -->
+            <div class="company-card">
+                <img src="logos/al-asalah.png" alt="Al Asalah Logo" class="company-logo-img">
+                <h3>Al Asalah Group</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>حلول طاقة متجددة وخدمات هندسية متكاملة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5331895</div>
+                    <div><i class="fas fa-envelope"></i> info@al-asalah.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=11" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 12 -->
+            <div class="company-card">
+                <img src="logos/are.png" alt="ARE Logo" class="company-logo-img">
+                <h3>Al Bustanje Renewable Energy Co.</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>متخصصون في حلول الطاقة المتجددة والطاقة الشمسية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5626260</div>
+                    <div><i class="fas fa-envelope"></i> info@are.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=12" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 13 -->
+            <div class="company-card">
+                <img src="logos/al-karam.png" alt="Al Karam Logo" class="company-logo-img">
+                <h3>Al Karam for Energy Saving</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (3.5) </span>
+                </div>
+                <p>حلول توفير الطاقة والطاقة الشمسية للمنازل والشركات.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5310540</div>
+                    <div><i class="fas fa-envelope"></i> alkaram.jo@gmail.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=13" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 14 -->
+            <div class="company-card">
+                <img src="logos/almasar.png" alt="Al Masar Logo" class="company-logo-img">
+                <h3>Al Masar Engineering Company</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول هندسية متكاملة في مجال الطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5533403</div>
+                    <div><i class="fas fa-envelope"></i> almasar88@yahoo.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=14" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 15 -->
+            <div class="company-card">
+                <img src="logos/al-tayseer.png" alt="Al Tayseer Logo" class="company-logo-img">
+                <h3>Al-Tayseer for Trade & Industrial Investments</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>استثمارات صناعية وتجارية في مجال الطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5373711</div>
+                    <div><i class="fas fa-envelope"></i> info@altayseer.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=15" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 16 -->
+            <div class="company-card">
+                <img src="logos/yarmouk.png" alt="Yarmouk Solar Logo" class="company-logo-img">
+                <h3>Al-Yarmouk for Energy Solutions</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة شمسية متكاملة في شمال الأردن.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> إربد، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-2-7105108</div>
+                    <div><i class="fas fa-envelope"></i> info@yarmouksolar.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=16" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 17 -->
+            <div class="company-card">
+                <img src="logos/alzhraa.png" alt="Al Zhraa Logo" class="company-logo-img">
+                <h3>Al-Zhraa Solar for Renewable Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>حلول طاقة شمسية للمنازل والشركات في إربد.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> إربد، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-2-7252099</div>
+                    <div><i class="fas fa-envelope"></i> alzhraasolar@hotmail.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=17" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 18 -->
+            <div class="company-card">
+                <img src="logos/assawsaneh.png" alt="Assawsaneh Logo" class="company-logo-img">
+                <h3>Assawsaneh for Renewable Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة متجددة وأنظمة شمسية متكاملة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-2-7276662</div>
+                    <div><i class="fas fa-envelope"></i> info@assawsaneh.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=18" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 19 -->
+            <div class="company-card">
+                <img src="logos/astraco.png" alt="Astraco Logo" class="company-logo-img">
+                <h3>Associated Transtech Contracting (ASTRACO)</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>مقاولات وتكنولوجيا في مجال الطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5671797</div>
+                    <div><i class="fas fa-envelope"></i> info@astraco.com.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=19" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 20 -->
+            <div class="company-card">
+                <img src="logos/ateeq.png" alt="Ateeq Energy Logo" class="company-logo-img">
+                <h3>ATEEQ Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة متجددة مبتكرة للقطاعين التجاري والسكني.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-79-7207105</div>
+                    <div><i class="fas fa-envelope"></i> ateeqenergy@gmail.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=20" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+                        <!-- شركة 21 -->
+            <div class="company-card">
+                <img src="logos/baynouna.png" alt="Baynouna Logo" class="company-logo-img">
+                <h3>Baynouna Solar Energy Company</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (5.0) </span>
+                </div>
+                <p>إحدى أكبر مشاريع الطاقة الشمسية في الأردن.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5104000</div>
+                    <div><i class="fas fa-envelope"></i> Info@baynouna.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=21" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 22 -->
+            <div class="company-card">
+                <img src="logos/bayt-al-taqa.png" alt="Bayt Al Taqa Logo" class="company-logo-img">
+                <h3>Bayt Al Taqa</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة متكاملة للمنازل والشركات.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5515113</div>
+                    <div><i class="fas fa-envelope"></i> info@baytaltaqa.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=22" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 23 -->
+            <div class="company-card">
+                <img src="logos/be-solar.png" alt="Be Solar Logo" class="company-logo-img">
+                <h3>Be Solar Energy Solutions</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>حلول طاقة شمسية مبتكرة بأسعار تنافسية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-777202035</div>
+                    <div><i class="fas fa-envelope"></i> info@besolar-jordan.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=23" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 24 -->
+            <div class="company-card">
+                <img src="logos/bsge.png" alt="BSGE Logo" class="company-logo-img">
+                <h3>Blue Stars for Green Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة خضراء مستدامة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5355051</div>
+                    <div><i class="fas fa-envelope"></i> info@bsge.net</div>
+                </div>
+                
+                <a href="contact-companies.html?company=24" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 25 -->
+            <div class="company-card">
+                <img src="logos/bs-solar.png" alt="BS Solar Logo" class="company-logo-img">
+                <h3>BS Solar</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>أنظمة شمسية متكاملة بجودة عالية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-79-5922337</div>
+                    <div><i class="fas fa-envelope"></i> asem@bs-solar.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=25" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 26 -->
+            <div class="company-card">
+                <img src="logos/cegco.png" alt="CEGCO Logo" class="company-logo-img">
+                <h3>Central Electricity Generation Company</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>شركة حكومية مسؤولة عن توليد الكهرباء في الأردن.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5340008</div>
+                    <div><i class="fas fa-envelope"></i> cegco@cegco.com.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=26" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 27 -->
+            <div class="company-card">
+                <img src="logos/cityspark.png" alt="CitySpark Logo" class="company-logo-img">
+                <h3>CitySpark Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة شمسية للمدن والمناطق الحضرية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5353478</div>
+                    <div><i class="fas fa-envelope"></i> info@citysparkenergy.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=27" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 28 -->
+            <div class="company-card">
+                <img src="logos/cec.png" alt="CEC Logo" class="company-logo-img">
+                <h3>Clean Energy Concepts</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>مفاهيم طاقة نظيفة وحلول مستدامة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5513298</div>
+                    <div><i class="fas fa-envelope"></i> info@cec-jo.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=28" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 29 -->
+            <div class="company-card">
+                <img src="logos/collectsun.png" alt="Collect Sun Logo" class="company-logo-img">
+                <h3>Collect Sun for Solar Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>أنظمة شمسية لجمع الطاقة الشمسية بكفاءة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5855220</div>
+                    <div><i class="fas fa-envelope"></i> info@collectsun.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=29" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 30 -->
+            <div class="company-card">
+                <img src="logos/ccc.png" alt="CCC Logo" class="company-logo-img">
+                <h3>Consolidated Contractors Co</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>مقاولات متكاملة في مجال الطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4658403</div>
+                    <div><i class="fas fa-envelope"></i> info@ccc.net</div>
+                </div>
+                
+                <a href="contact-companies.html?company=30" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 31 -->
+            <div class="company-card">
+                <img src="logos/cthreee.png" alt="CThreeE Logo" class="company-logo-img">
+                <h3>Consolidated Energy & Economic Engineering</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>هندسة الطاقة والاقتصاد الهندسي المتكامل.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4620050</div>
+                    <div><i class="fas fa-envelope"></i> Info@cthreee.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=31" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 32 -->
+            <div class="company-card">
+                <img src="logos/control-solar.png" alt="Control Solar Logo" class="company-logo-img">
+                <h3>Control Solar Est</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>أنظمة شمسية متحكم بها بذكاء.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5623500</div>
+                    <div><i class="fas fa-envelope"></i> info@control-solar.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=32" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 33 -->
+            <div class="company-card">
+                <img src="logos/desert-tech.png" alt="Desert Tech Logo" class="company-logo-img">
+                <h3>Desert Technologies</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (5.0) </span>
+                </div>
+                <p>تقنيات صحراوية متقدمة للطاقة الشمسية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5862277</div>
+                    <div><i class="fas fa-envelope"></i> info@desert-technologies.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=33" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 34 -->
+            <div class="company-card">
+                <img src="logos/e2e.png" alt="E2E Logo" class="company-logo-img">
+                <h3>E2E Integrated solution</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول متكاملة من البداية إلى النهاية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4614005</div>
+                    <div><i class="fas fa-envelope"></i> info@e2eco.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=34" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 35 -->
+            <div class="company-card">
+                <img src="logos/esolars.png" alt="eSolars Logo" class="company-logo-img">
+                <h3>Economical Company for Solar Services</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>خدمات شمسية اقتصادية بجودة عالية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5513751</div>
+                    <div><i class="fas fa-envelope"></i> info@esolars.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=35" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 36 -->
+            <div class="company-card">
+                <img src="logos/eletech.png" alt="ELETECH Logo" class="company-logo-img">
+                <h3>Electric Technology Experts</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>خبراء في تكنولوجيا الكهرباء والطاقة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4766223</div>
+                    <div><i class="fas fa-envelope"></i> info@eletechgroup.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=36" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 37 -->
+            <div class="company-card">
+                <img src="logos/edco.png" alt="EDCO Logo" class="company-logo-img">
+                <h3>Electricity Distribution Co.</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>شركة توزيع الكهرباء في الأردن.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5331330</div>
+                    <div><i class="fas fa-envelope"></i> info@edco.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=37" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 38 -->
+            <div class="company-card">
+                <img src="logos/elecvolt.png" alt="ElecVolt Logo" class="company-logo-img">
+                <h3>Electron Volt Company</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة متقدمة تعتمد على الفولت الإلكتروني.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5370363</div>
+                    <div><i class="fas fa-envelope"></i> evegmco@gmail.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=38" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 39 -->
+            <div class="company-card">
+                <img src="logos/empower.png" alt="EMPower Logo" class="company-logo-img">
+                <h3>EMPower</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>تمكين الطاقة المتجددة للمجتمعات.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-79-9122477</div>
+                    <div><i class="fas fa-envelope"></i> help.empower@outlook.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=39" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 40 -->
+            <div class="company-card">
+                <img src="logos/energy-flow.png" alt="Energy Flow Logo" class="company-logo-img">
+                <h3>Energy Flow</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (5.0) </span>
+                </div>
+                <p>تدفق الطاقة الشمسية بكفاءة عالية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5868490</div>
+                    <div><i class="fas fa-envelope"></i> info@petrasystems.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=40" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+                        <!-- شركة 41 -->
+            <div class="company-card">
+                <img src="logos/energy-intl.png" alt="Energy International Logo" class="company-logo-img">
+                <h3>Energy International Jordan</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>حلول طاقة دولية مع خبرة محلية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5561718</div>
+                    <div><i class="fas fa-envelope"></i> fadi.rashid@energyintl.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=41" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 42 -->
+            <div class="company-card">
+                <img src="logos/enviromena.png" alt="Enviromena Logo" class="company-logo-img">
+                <h3>Enviromena</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة متجددة صديقة للبيئة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5805391</div>
+                    <div><i class="fas fa-envelope"></i> contact@enviromena.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=42" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 43 -->
+            <div class="company-card">
+                <img src="logos/eta-max.png" alt="ETA-max Logo" class="company-logo-img">
+                <h3>ETA-max Energy & Environmental Solutions</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة وبيئية متكاملة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5850770</div>
+                    <div><i class="fas fa-envelope"></i> info@eta-max.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=43" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 44 -->
+            <div class="company-card">
+                <img src="logos/ejre.png" alt="EJRE Logo" class="company-logo-img">
+                <h3>European Jordanian Renewable Energy Projects</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>مشاريع طاقة متجددة أوروبية أردنية مشتركة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5506774</div>
+                    <div><i class="fas fa-envelope"></i> info@ejre.com.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=44" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 45 -->
+            <div class="company-card">
+                <img src="logos/evas.png" alt="EVAS Logo" class="company-logo-img">
+                <h3>EVAS Energy Group</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (5.0) </span>
+                </div>
+                <p>مجموعة طاقة متكاملة بخبرة واسعة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5833744</div>
+                    <div><i class="fas fa-envelope"></i> Info@evasgroup.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=45" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 46 -->
+            <div class="company-card">
+                <img src="logos/ees.png" alt="EES Logo" class="company-logo-img">
+                <h3>Evolution Engineering Services</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>خدمات هندسية متطورة في مجال الطاقة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5346435</div>
+                    <div><i class="fas fa-envelope"></i> info@ees-jo.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=46" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 47 -->
+            <div class="company-card">
+                <img src="logos/evolution-solar.png" alt="Evolution Solar Logo" class="company-logo-img">
+                <h3>Evolution Solar</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>تطور مستمر في حلول الطاقة الشمسية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +408-4966500</div>
+                    <div><i class="fas fa-envelope"></i> george_tannous@evolutionsolar.net</div>
+                </div>
+                
+                <a href="contact-companies.html?company=47" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 48 -->
+            <div class="company-card">
+                <img src="logos/field-energy.png" alt="Field Energy Logo" class="company-logo-img">
+                <h3>Field Energy Services</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>خدمات طاقة ميدانية متخصصة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5852990</div>
+                    <div><i class="fas fa-envelope"></i> info@field-energy.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=48" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 49 -->
+            <div class="company-card">
+                <img src="logos/fb-group.png" alt="FB GROUP Logo" class="company-logo-img">
+                <h3>Firas Balasmeh Corporation for Control Systems</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>أنظمة تحكم متكاملة للطاقة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4643756</div>
+                    <div><i class="fas fa-envelope"></i> info@fbgroup.com.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=49" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 50 -->
+            <div class="company-card">
+                <img src="logos/fujeij.png" alt="Fujeij Logo" class="company-logo-img">
+                <h3>Fujeij Wind Power Company</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>طاقة الرياح في منطقة فجيج.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-2003316</div>
+                    <div><i class="fas fa-envelope"></i> rana.a.alzubi@gmail.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=50" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 51 -->
+            <div class="company-card">
+                <img src="logos/future-energy.png" alt="Future Energy Logo" class="company-logo-img">
+                <h3>Future Energy Jo</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>طاقة المستقبل للأردن.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-78-7899800</div>
+                    <div><i class="fas fa-envelope"></i> info@futureenergyusa.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=51" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 52 -->
+            <div class="company-card">
+                <img src="logos/future-jordan.png" alt="Future Jordan Logo" class="company-logo-img">
+                <h3>Future Energy projects Development Company</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>تطوير مشاريع طاقة المستقبل.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5350103</div>
+                    <div><i class="fas fa-envelope"></i> info@future-jordan.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=52" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 53 -->
+            <div class="company-card">
+                <img src="logos/futuresun.png" alt="Future Sun Logo" class="company-logo-img">
+                <h3>Future Sun Renewable Energy Systems</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>أنظمة طاقة شمسية لمستقبل مشرق.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5540343</div>
+                    <div><i class="fas fa-envelope"></i> info@futuresun.com.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=53" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 54 -->
+            <div class="company-card">
+                <img src="logos/gazania.png" alt="Gazania Logo" class="company-logo-img">
+                <h3>Gazania Solar Systems</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>أنظمة شمسية متكاملة بجودة عالية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5530934</div>
+                    <div><i class="fas fa-envelope"></i> sales@gazaniasolar.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=54" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 55 -->
+            <div class="company-card">
+                <img src="logos/generators.png" alt="Generators Logo" class="company-logo-img">
+                <h3>Generators - Arar & Abdullah TR. Co</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>مولدات طاقة وأنظمة شمسية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5158859</div>
+                    <div><i class="fas fa-envelope"></i> Info@generators-jo.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=55" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 56 -->
+            <div class="company-card">
+                <img src="logos/glory.png" alt="Glory Logo" class="company-logo-img">
+                <h3>Glory Logistics Services, Marketing and Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>خدمات لوجستية وتسويقية في مجال الطاقة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5693334</div>
+                    <div><i class="fas fa-envelope"></i> Solar@gloryserv.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=56" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 57 -->
+            <div class="company-card">
+                <img src="logos/green-electron.png" alt="Green Electron Logo" class="company-logo-img">
+                <h3>Green Electron - Energy Solutions</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>حلول طاقة خضراء مستدامة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-79-7573971</div>
+                    <div><i class="fas fa-envelope"></i> info@green-electron.net</div>
+                </div>
+                
+                <a href="contact-companies.html?company=57" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 58 -->
+            <div class="company-card">
+                <img src="logos/gem.png" alt="GEM Logo" class="company-logo-img">
+                <h3>Green Energy Market</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>سوق الطاقة الخضراء والحلول المستدامة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4620050</div>
+                    <div><i class="fas fa-envelope"></i> info@gem.com.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=58" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 59 -->
+            <div class="company-card">
+                <img src="logos/greenfeet.png" alt="Green Feet Logo" class="company-logo-img">
+                <h3>Green Feet Solar Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>حلول طاقة شمسية بخطى خضراء.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5358877</div>
+                    <div><i class="fas fa-envelope"></i> info@greenfeet.info</div>
+                </div>
+                
+                <a href="contact-companies.html?company=59" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 60 -->
+            <div class="company-card">
+                <img src="logos/greensun.png" alt="Green Sun Logo" class="company-logo-img">
+                <h3>Green Sun Energy Solutions</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة شمسية خضراء مستدامة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-79-8748813</div>
+                    <div><i class="fas fa-envelope"></i> Sales@greensunjo.net</div>
+                </div>
+                
+                <a href="contact-companies.html?company=60" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+                        <!-- شركة 61 -->
+            <div class="company-card">
+                <img src="logos/green-viro.png" alt="Greenviro Logo" class="company-logo-img">
+                <h3>Greenviro Solutions</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول بيئية خضراء متكاملة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5054441</div>
+                    <div><i class="fas fa-envelope"></i> info@green-viro.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=61" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 62 -->
+            <div class="company-card">
+                <img src="logos/hanania.png" alt="Hanania Logo" class="company-logo-img">
+                <h3>Hanania Investment Group</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>مجموعة استثمارية في مجال الطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5540076</div>
+                    <div><i class="fas fa-envelope"></i> sales@hanania.me</div>
+                </div>
+                
+                <a href="contact-companies.html?company=62" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 63 -->
+            <div class="company-card">
+                <img src="logos/hasad.png" alt="Hasad Logo" class="company-logo-img">
+                <h3>HASAD Energy & Control Systems</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>أنظمة تحكم وطاقة متكاملة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5340902</div>
+                    <div><i class="fas fa-envelope"></i> am.jundi@hasadsystems.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=63" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 64 -->
+            <div class="company-card">
+                <img src="logos/hiba.png" alt="Hiba Logo" class="company-logo-img">
+                <h3>Hiba Engineering Establishment</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>مؤسسة هندسية متخصصة في الطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5515120</div>
+                    <div><i class="fas fa-envelope"></i> ahmad.rahhal@hiba-eng.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=64" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 65 -->
+            <div class="company-card">
+                <img src="logos/ideal-solar.png" alt="Ideal Solar Logo" class="company-logo-img">
+                <h3>Ideal Solar Energy Co. Ltd.</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة شمسية مثالية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5333003</div>
+                    <div><i class="fas fa-envelope"></i> nfo@hanania.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=65" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 66 -->
+            <div class="company-card">
+                <img src="logos/idhal.png" alt="Idhal Logo" class="company-logo-img">
+                <h3>Idhal Solar</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>حلول طاقة شمسية مبتكرة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-77-9658437</div>
+                    <div><i class="fas fa-envelope"></i> info@idhalsolar.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=66" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 67 -->
+            <div class="company-card">
+                <img src="logos/imkan.png" alt="Imkan Logo" class="company-logo-img">
+                <h3>IMKAN for Multi Construction Enterprises</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>شركة مقاولات متعددة في مجال الطاقة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5413611</div>
+                    <div><i class="fas fa-envelope"></i> info@imkan.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=67" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 68 -->
+            <div class="company-card">
+                <img src="logos/itcc.png" alt="ITCC Logo" class="company-logo-img">
+                <h3>International Technical Construction & Storage Co.</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>إنشاءات تقنية وتخزين للطاقة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5514963</div>
+                    <div><i class="fas fa-envelope"></i> admin@itccjo.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=68" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 69 -->
+            <div class="company-card">
+                <img src="logos/intrah.png" alt="Intrah Logo" class="company-logo-img">
+                <h3>International Trading House for Agencies</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>تجارة دولية في مجال الطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4652735</div>
+                    <div><i class="fas fa-envelope"></i> intrah@nets.com.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=69" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 70 -->
+            <div class="company-card">
+                <img src="logos/ideco.png" alt="IDECO Logo" class="company-logo-img">
+                <h3>Irbid District Electricity Company</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>شركة توزيع كهرباء إربد.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> إربد، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-2-7201500</div>
+                    <div><i class="fas fa-envelope"></i> ideco@ideco.com.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=70" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 71 -->
+            <div class="company-card">
+                <img src="logos/ishraq.png" alt="Ishraq Logo" class="company-logo-img">
+                <h3>Ishraq Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>طاقة الإشراق لحلول الطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5357071</div>
+                    <div><i class="fas fa-envelope"></i> info@ishraqenergy.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=71" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 72 -->
+            <div class="company-card">
+                <img src="logos/istabraq.png" alt="Istabraq Logo" class="company-logo-img">
+                <h3>Istabraq for Renewable Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>حلول طاقة متجددة مستدامة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-2-7100862</div>
+                    <div><i class="fas fa-envelope"></i> info@istabraq-energy.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=72" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 73 -->
+            <div class="company-card">
+                <img src="logos/marji.png" alt="Marji Logo" class="company-logo-img">
+                <h3>Izzat Marji Group</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (5.0) </span>
+                </div>
+                <p>مجموعة عزت مرجي للطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5357733</div>
+                    <div><i class="fas fa-envelope"></i> pv@marji.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=73" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 74 -->
+            <div class="company-card">
+                <img src="logos/jordan-climate.png" alt="Jordan Climate Logo" class="company-logo-img">
+                <h3>Jordan Climate Change Consultancy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>استشارات تغير المناخ والطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5659432</div>
+                    <div><i class="fas fa-envelope"></i> info@jordanclimate.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=74" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 75 -->
+            <div class="company-card">
+                <img src="logos/jtec.png" alt="JTEC Logo" class="company-logo-img">
+                <h3>Jordan Tractor and Equipment Co.</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>معدات وآلات للطاقة المتجددة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5161141</div>
+                    <div><i class="fas fa-envelope"></i> info@jtec.com.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=75" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 76 -->
+            <div class="company-card">
+                <img src="logos/kahraman.png" alt="Kahraman Logo" class="company-logo-img">
+                <h3>Kahraman Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>حلول طاقة متجددة في إربد.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> إربد، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-78-5770261</div>
+                    <div><i class="fas fa-envelope"></i> kahramanenergy@gmail.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=76" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 77 -->
+            <div class="company-card">
+                <img src="logos/kawkabuna.png" alt="Kawkabuna Logo" class="company-logo-img">
+                <h3>Kawkabuna for Energy Solutions</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة متكاملة لكوكبنا.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4637100</div>
+                    <div><i class="fas fa-envelope"></i> info@kawkabuna.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=77" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 78 -->
+            <div class="company-card">
+                <img src="logos/lightness.png" alt="Lightness Logo" class="company-logo-img">
+                <h3>Lightness Solar</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>أنظمة شمسية خفيفة الوزن.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5531673</div>
+                    <div><i class="fas fa-envelope"></i> info@lightnessolar.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=78" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 79 -->
+            <div class="company-card">
+                <img src="logos/maani.png" alt="Maani Logo" class="company-logo-img">
+                <h3>Maani SOLAR</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول شمسية متكاملة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4129119</div>
+                    <div><i class="fas fa-envelope"></i> sales.solar@maani.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=79" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 80 -->
+            <div class="company-card">
+                <img src="logos/madhoun.png" alt="Madhoun Logo" class="company-logo-img">
+                <h3>Madhoun Electronics and Trade</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>إلكترونيات وتجارة في مجال الطاقة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-4611863</div>
+                    <div><i class="fas fa-envelope"></i> adel@madhoun.net</div>
+                </div>
+                
+                <a href="contact-companies.html?company=80" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 81 -->
+            <div class="company-card">
+                <img src="logos/manteq.png" alt="Manteq Logo" class="company-logo-img">
+                <h3>MANTEQ Engineering</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>هندسة متقدمة في مجال الطاقة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5521305</div>
+                    <div><i class="fas fa-envelope"></i> info@manteqeng.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=81" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 82 -->
+            <div class="company-card">
+                <img src="logos/martifer.png" alt="Martifer Logo" class="company-logo-img">
+                <h3>Martifer Solar</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>حلول شمسية عالمية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5515229</div>
+                    <div><i class="fas fa-envelope"></i> info@martifersolar.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=82" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 83 -->
+            <div class="company-card">
+                <img src="logos/dajani.png" alt="Dajani Logo" class="company-logo-img">
+                <h3>Mazen Dajani & Company</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول طاقة متكاملة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5371543</div>
+                    <div><i class="fas fa-envelope"></i> info@dajaniandco.jo</div>
+                </div>
+                
+                <a href="contact-companies.html?company=83" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 84 -->
+            <div class="company-card">
+                <img src="logos/meroun.png" alt="Meroun Logo" class="company-logo-img">
+                <h3>Meroun Green Solutions</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>حلول خضراء مستدامة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5850234</div>
+                    <div><i class="fas fa-envelope"></i> info@meroungreen.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=84" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 85 -->
+            <div class="company-card">
+                <img src="logos/meteor.png" alt="Meteor Logo" class="company-logo-img">
+                <h3>Meteor Solar</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>أنظمة شمسية سريعة التركيب.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-79-6190909</div>
+                    <div><i class="fas fa-envelope"></i> louay@meterojo.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=85" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 86 -->
+            <div class="company-card">
+                <img src="logos/mesolarstores.png" alt="MESolarStores Logo" class="company-logo-img">
+                <h3>Middle East Solar Stores</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>متاجر الشرق الأوسط للطاقة الشمسية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5330937</div>
+                    <div><i class="fas fa-envelope"></i> info@mesolarstores.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=86" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 87 -->
+            <div class="company-card">
+                <img src="logos/mei.png" alt="MEI Logo" class="company-logo-img">
+                <h3>Millennium Energy Industries</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>صناعات طاقة الألفية.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +96265855533</div>
+                    <div><i class="fas fa-envelope"></i> info@meisolar.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=87" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 88 -->
+            <div class="company-card">
+                <img src="logos/mirjas.png" alt="Mirjas Logo" class="company-logo-img">
+                <h3>Mirjas for Renewable Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (3.8) </span>
+                </div>
+                <p>حلول طاقة متجددة لأنظمة الأنابيب.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5061844</div>
+                    <div><i class="fas fa-envelope"></i> info@mirjas.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=88" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 89 -->
+            <div class="company-card">
+                <img src="logos/mase.png" alt="MASE Logo" class="company-logo-img">
+                <h3>Modern Arabia for Solar Energy</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span> (4.0) </span>
+                </div>
+                <p>حلول شمسية عربية حديثة.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5630449</div>
+                    <div><i class="fas fa-envelope"></i> enquiries@mase-energy.com</div>
+                </div>
+                
+                <a href="contact-companies.html?company=89" class="btn">طلب عرض سعر <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- شركة 90 -->
+            <div class="company-card">
+                <img src="logos/mostaqbal.png" alt="Mostaqbal Logo" class="company-logo-img">
+                <h3>Mostaqbal Engineering & Environmental Consultants</h3>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span> (4.3) </span>
+                </div>
+                <p>استشارات هندسية وبيئية للمستقبل.</p>
+                
+                <div class="company-contact">
+                    <div><i class="fas fa-map-marker-alt"></i> عمان، الأردن</div>
+                    <div><i class="fas fa-phone"></i> +962-6-5923602</div>
+                    <div><i class="fas fa-envelope"></i> info@mostaqbal.jo</div>
+                </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 PV Calculator. جميع الحقوق محفوظة.</p>
+        <p>الشركات المدرجة معتمدة ومرخصة من قبل الجهات المختصة في الأردن</p>
+    </footer>
+</body>
+</html>
