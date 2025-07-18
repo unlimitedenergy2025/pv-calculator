@@ -19,6 +19,11 @@
 <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
 
 <script>
+        firebase.auth().onAuthStateChanged(user => {
+  if (!user) {
+    window.location.href = "login.html"; // توجيه غير المسجلين
+  }
+});
   const firebaseConfig = {
     apiKey: "YOUR_API_KEY",
     authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
