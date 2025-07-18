@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PV Calculator - الرئيسية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- مكتبة Firebase في head -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -14,26 +17,7 @@
             --dark-color: #2c3e50;
             --success-color: #27ae60;
         }
-        <!-- أضف هذه المكتبات -->
-<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
-
-<script>
-        firebase.auth().onAuthStateChanged(user => {
-  if (!user) {
-    window.location.href = "login.html"; // توجيه غير المسجلين
-  }
-});
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
-  firebase.initializeApp(firebaseConfig);
-</script>
+        
         body {
             font-family: 'Tajawal', sans-serif;
             background-color: #f5f5f5;
@@ -41,90 +25,7 @@
             padding: 0;
         }
         
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        .logo img {
-            width: 80px;
-            margin-bottom: 15px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .service-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            border-top: 4px solid var(--secondary-color);
-            text-align: center;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-        }
-        
-        .service-card h2 {
-            color: var(--primary-color);
-            margin-top: 0;
-            font-size: 1.4rem;
-        }
-        
-        .service-card p {
-            color: #7f8c8d;
-            margin-bottom: 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 25px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 25px 0;
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        @media (max-width: 768px) {
-            .services {
-                grid-template-columns: 1fr;
-            }
-            
-            .service-card {
-                padding: 20px;
-            }
-        }
+        /* بقية الـ CSS الخاص بك */
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -142,23 +43,7 @@
         <p>اختر الخدمة التي تحتاجها من القائمة التالية:</p>
         
         <div class="services">
-            <div class="service-card">
-                <h2><i class="fas fa-calculator"></i> الخدمات الهندسية</h2>
-                <p>حلول هندسية دقيقة وحسابات متكاملة لأنظمة الطاقة الشمسية</p>
-                <a href="engineering.html" class="btn">الدخول إلى الخدمة <i class="fas fa-arrow-left"></i></a>
-            </div>
-            
-            <div class="service-card">
-                <h2><i class="fas fa-tools"></i> الخدمات العامة</h2>
-                <p>أدوات متكاملة لتصميم واختيار مكونات النظام الشمسي</p>
-                <a href="general.html" class="btn">الدخول إلى الخدمة <i class="fas fa-arrow-left"></i></a>
-            </div>
-            
-            <div class="service-card">
-                <h2><i class="fas fa-headset"></i> خدمة الاستشارة</h2>
-                <p>استشارات متخصصة من خبراء في مجال الطاقة الشمسية</p>
-                <a href="engineering-consultation.html" class="btn">الدخول إلى الخدمة <i class="fas fa-arrow-left"></i></a>
-            </div>
+            <!-- بطاقات الخدمات -->
         </div>
     </div>
 
@@ -166,5 +51,46 @@
         <p>© 2023 PV Calculator. جميع الحقوق محفوظة.</p>
         <p>الإصدار 2.1 - نظام متكامل لحسابات الطاقة الشمسية</p>
     </footer>
+
+    <!-- تهيئة Firebase والتحقق من المصادقة -->
+    <script>
+        // قم باستبدال هذه القيم بقيمك من Firebase Console
+        const firebaseConfig = {
+            apiKey: "AIzaSyABCDEFGHIJKLMNOPQRSTUVWXYZ12345678",
+            authDomain: "your-project-id.firebaseapp.com",
+            projectId: "your-project-id",
+            storageBucket: "your-project-id.appspot.com",
+            messagingSenderId: "123456789012",
+            appId: "1:123456789012:web:abcdef1234567890"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // التحقق من حالة المصادقة
+        firebase.auth().onAuthStateChanged((user) => {
+            if (!user) {
+                // إذا لم يكن المستخدم مسجلاً، توجيهه لصفحة تسجيل الدخول
+                window.location.href = "login.html";
+            } else {
+                // إذا كان مسجلاً، يمكنك عرض معلومات إضافية
+                console.log("المستخدم مسجل:", user.email);
+                
+                // مثال: إضافة اسم المستخدم في الواجهة
+                const welcomeElement = document.createElement('div');
+                welcomeElement.innerHTML = `مرحباً ${user.email} | <a href="#" onclick="logout()">تسجيل الخروج</a>`;
+                welcomeElement.style.textAlign = 'center';
+                welcomeElement.style.margin = '20px 0';
+                document.querySelector('header').appendChild(welcomeElement);
+            }
+        });
+
+        // دالة تسجيل الخروج
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                window.location.href = "login.html";
+            });
+        }
+    </script>
 </body>
 </html>
