@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PV Calculator - الرئيسية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- مكتبة Firebase في head -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -25,12 +23,71 @@
             padding: 0;
         }
         
-        /* بقية الـ CSS الخاص بك */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .user-info {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 14px;
+        }
+        
+        .logo img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 4px solid var(--secondary-color);
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
+        <div class="user-info" id="userInfo"></div>
         <div class="logo">
             <img src="logo.png" alt="PV Calculator Logo">
             <h1>PV Calculator</h1>
@@ -40,57 +97,55 @@
 
     <div class="container">
         <h2><i class="fas fa-th-list"></i> خدماتنا المتاحة</h2>
-        <p>اختر الخدمة التي تحتاجها من القائمة التالية:</p>
-        
         <div class="services">
-            <!-- بطاقات الخدمات -->
+            <div class="service-card">
+                <h2><i class="fas fa-calculator"></i> الخدمات الهندسية</h2>
+                <p>حلول هندسية دقيقة وحسابات متكاملة لأنظمة الطاقة الشمسية</p>
+                <a href="engineering.html" class="btn">الدخول إلى الخدمة <i class="fas fa-arrow-left"></i></a>
+            </div>
+            
+            <div class="service-card">
+                <h2><i class="fas fa-tools"></i> الخدمات العامة</h2>
+                <p>أدوات متكاملة لتصميم واختيار مكونات النظام الشمسي</p>
+                <a href="general.html" class="btn">الدخول إلى الخدمة <i class="fas fa-arrow-left"></i></a>
+            </div>
         </div>
     </div>
 
     <footer>
         <p>© 2023 PV Calculator. جميع الحقوق محفوظة.</p>
-        <p>الإصدار 2.1 - نظام متكامل لحسابات الطاقة الشمسية</p>
     </footer>
 
-    <!-- تهيئة Firebase والتحقق من المصادقة -->
-    <script>
-        // قم باستبدال هذه القيم بقيمك من Firebase Console
-        const firebaseConfig = {
-            apiKey: "AIzaSyABCDEFGHIJKLMNOPQRSTUVWXYZ12345678",
-            authDomain: "your-project-id.firebaseapp.com",
-            projectId: "your-project-id",
-            storageBucket: "your-project-id.appspot.com",
-            messagingSenderId: "123456789012",
-            appId: "1:123456789012:web:abcdef1234567890"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        // التحقق من حالة المصادقة
-        firebase.auth().onAuthStateChanged((user) => {
+    <!-- Firebase Modular SDK -->
+    <script type="module">
+        import { auth } from './firebase-config.js';
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
+        
+        // التحقق من حالة المستخدم
+        onAuthStateChanged(auth, (user) => {
             if (!user) {
-                // إذا لم يكن المستخدم مسجلاً، توجيهه لصفحة تسجيل الدخول
                 window.location.href = "login.html";
             } else {
-                // إذا كان مسجلاً، يمكنك عرض معلومات إضافية
-                console.log("المستخدم مسجل:", user.email);
-                
-                // مثال: إضافة اسم المستخدم في الواجهة
-                const welcomeElement = document.createElement('div');
-                welcomeElement.innerHTML = `مرحباً ${user.email} | <a href="#" onclick="logout()">تسجيل الخروج</a>`;
-                welcomeElement.style.textAlign = 'center';
-                welcomeElement.style.margin = '20px 0';
-                document.querySelector('header').appendChild(welcomeElement);
+                // عرض معلومات المستخدم
+                const userInfo = document.getElementById('userInfo');
+                userInfo.innerHTML = `
+                    ${user.email} | 
+                    <a href="#" onclick="event.preventDefault(); logout()" style="color: white;">
+                        <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                    </a>
+                `;
             }
         });
-
+        
         // دالة تسجيل الخروج
-        function logout() {
-            firebase.auth().signOut().then(() => {
+        window.logout = async function() {
+            try {
+                await signOut(auth);
                 window.location.href = "login.html";
-            });
-        }
+            } catch (error) {
+                console.error("Error signing out:", error);
+            }
+        };
     </script>
 </body>
 </html>
