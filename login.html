@@ -1,0 +1,26 @@
+<div id="auth-container">
+  <input type="email" id="email" placeholder="البريد الإلكتروني">
+  <input type="password" id="password" placeholder="كلمة المرور">
+  <button onclick="login()">تسجيل الدخول</button>
+  <button onclick="signup()">إنشاء حساب</button>
+</div>
+
+<script>
+  function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(() => window.location.href = "calculator.html")
+      .catch(error => alert(error.message));
+  }
+
+  function signup() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(() => alert("تم إنشاء الحساب بنجاح!"))
+      .catch(error => alert(error.message));
+  }
+</script>
