@@ -67,46 +67,40 @@
     </div>
 
     <!-- Firebase Modular SDK -->
-    <script type="module">
-        import { auth } from './firebase-config.js';
-        import { 
-            signInWithEmailAndPassword,
-            createUserWithEmailAndPassword 
-        } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
-        
-        // دالة تسجيل الدخول
-        window.login = async function() {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-                window.location.href = "index.html";
-            } catch (error) {
-                document.getElementById('error').innerText = error.message;
-            }
-        };
-        
-        // دالة إنشاء حساب
-        window.signup = async function() {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            try {
-                await createUserWithEmailAndPassword(auth, email, password);
-                alert("تم إنشاء الحساب بنجاح! يمكنك الآن تسجيل الدخول");
-            } catch (error) {
-                document.getElementById('error').innerText = error.message;
-            }
-        };
-        
-        // إذا كان المستخدم مسجلًا بالفعل، توجيهه للصفحة الرئيسية
-        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                window.location.href = "index.html";
-            }
-        });
+<script type="module">
+  import { auth } from './firebase-config.js';
+  import { 
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword 
+  } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
+
+  // اجعل الدوال متاحة globally
+  window.login = async () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      window.location.href = "index.html";
+    } catch (error) {
+      document.getElementById('error').innerText = error.message;
+      console.error("Login error:", error);
+    }
+  };
+
+  window.signup = async () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert("تم إنشاء الحساب بنجاح! يمكنك الآن تسجيل الدخول");
+    } catch (error) {
+      document.getElementById('error').innerText = error.message;
+      console.error("Signup error:", error);
+    }
+  };
+
     </script>
 </body>
 </html>
